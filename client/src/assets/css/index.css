@@ -61,7 +61,6 @@ Globals
   --narrow-line-height: 1.5em;
   --wide-line-height: 2em;
   --spacing: 0.1em;
-  --font-family: 'Satisfy', cursive;
 
   
  }
@@ -74,7 +73,6 @@ Globals
   box-sizing: border-box;
 }
 body {
-  font-family: var(--font-family);
   background: var(--primary-100);
   color: var(--grey-500);
   line-height: 1.5;

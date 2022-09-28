@@ -1,6 +1,6 @@
+import { Link } from 'react-router-dom';
+
 const Landing = () => {
-  return (
-    <div>Landing</div>
-  )
-}
-export default Landing
+  return <Link to="/register">Login/Register</Link>;
+};
+export default Landing;
