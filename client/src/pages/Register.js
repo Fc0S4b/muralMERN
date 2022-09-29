@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Logo, FormRow, Alert } from '../components';
+import Wrapper from '../assets/wrappers/RegisterWrapper';
 
 const initialState = {
   name: '',
@@ -25,39 +26,43 @@ const Register = () => {
     console.log(e.target);
   };
   return (
-    <form onSubmit={onSubmit}>
-      <Logo />
-      {values.showAlert && <Alert />}
-      <h3>{values.isMember ? 'Login' : 'Register'}</h3>
-      {!values.isMember && (
+    <Wrapper className="full-page">
+      <form className="form" onSubmit={onSubmit}>
+        <Logo />
+        {values.showAlert && <Alert />}
+        <h3>{values.isMember ? 'Acceder' : 'Registrarse'}</h3>
+        {!values.isMember && (
+          <FormRow
+            type="text"
+            name="nombre"
+            value={values.name}
+            handleChange={handleChange}
+          />
+        )}
         <FormRow
-          type="text"
-          name="name"
-          value={values.name}
+          type="email"
+          name="email"
+          value={values.email}
           handleChange={handleChange}
         />
-      )}
-      <FormRow
-        type="email"
-        name="email"
-        value={values.email}
-        handleChange={handleChange}
-      />
-      <FormRow
-        type="password"
-        name="password"
-        value={values.password}
-        handleChange={handleChange}
-      />
+        <FormRow
+          type="password"
+          name="contraseña"
+          value={values.password}
+          handleChange={handleChange}
+        />
 
-      <button type="submit">submit</button>
-      <p>
-        {values.isMember ? 'Aún no registrado?' : 'Ya estás registrado?'}
-        <button type="button" onClick={toggleMember}>
-          {values.isMember ? 'Register' : 'Login'}
+        <button type="submit" className="btn btn-block">
+          Enviar
         </button>
-      </p>
-    </form>
+        <p>
+          {values.isMember ? 'Aún no registrado? ' : 'Ya estás registrado? '}
+          <button type="button" className="member-btn" onClick={toggleMember}>
+            {values.isMember ? 'Registrarse' : 'Acceder'}
+          </button>
+        </p>
+      </form>
+    </Wrapper>
   );
 };
 export default Register;

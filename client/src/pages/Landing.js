@@ -17,7 +17,7 @@ const Landing = () => {
             comunidad.
           </p>
           <Link to="/register" className="btn btn-hero">
-            Login/Register
+            Acceder/Registrarse
           </Link>
         </div>
       </div>
