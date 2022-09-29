@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Logo, FormRow, Alert } from '../components';
 import Wrapper from '../assets/wrappers/RegisterWrapper';
+import { useAppContext } from '../context/appContext';
 
 const initialState = {
   name: '',
@@ -12,18 +13,23 @@ const initialState = {
 
 const Register = () => {
   const [values, setValues] = useState(initialState);
-
+  const { displayAlert } = useAppContext();
   const toggleMember = () => {
     setValues({ ...values, isMember: !values.isMember });
   };
 
   const handleChange = (e) => {
-    console.log(e.target);
+    setValues({ ...values, [e.target.name]: e.target.value });
   };
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log(e.target);
+    const { name, email, password, isMember } = values;
+    if (!email || !password || (!isMember && !name)) {
+      displayAlert();
+      return;
+    }
+    console.log(values);
   };
   return (
     <Wrapper className="full-page">
@@ -34,9 +40,10 @@ const Register = () => {
         {!values.isMember && (
           <FormRow
             type="text"
-            name="nombre"
+            name="name"
             value={values.name}
             handleChange={handleChange}
+            labelText="nombre"
           />
         )}
         <FormRow
@@ -47,9 +54,10 @@ const Register = () => {
         />
         <FormRow
           type="password"
-          name="contraseña"
+          name="password"
           value={values.password}
           handleChange={handleChange}
+          labelText="contraseña"
         />
 
         <button type="submit" className="btn btn-block">
