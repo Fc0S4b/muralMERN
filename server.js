@@ -1,3 +1,4 @@
+import 'express-async-errors';
 import express from 'express';
 const app = express();
 import dotenv from 'dotenv';
@@ -9,7 +10,6 @@ import errorHandlerMiddleware from './middleware/error-handler.js';
 import connectDB from './db/connect.js';
 import authRouter from './routes/authRoutes.js';
 import newsRouter from './routes/newsRouter.js';
-
 app.use(express.json());
 
 app.get('/', (req, res) => {
