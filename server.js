@@ -10,10 +10,14 @@ import errorHandlerMiddleware from './middleware/error-handler.js';
 import connectDB from './db/connect.js';
 import authRouter from './routes/authRoutes.js';
 import newsRouter from './routes/newsRouter.js';
+
 app.use(express.json());
 
-app.get('/', (req, res) => {
-  res.send('Welcome!');
+// app.get('/', (req, res) => {
+//   res.json({ msg: 'Welcome!' });
+// });
+app.get('/api/v1', (req, res) => {
+  res.json({ msg: 'API' });
 });
 
 app.use('/api/v1/auth', authRouter);
