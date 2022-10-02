@@ -13,13 +13,9 @@ const initialState = {
 
 const Register = () => {
   const [values, setValues] = useState(initialState);
-  const { displayAlert } = useAppContext();
+  const { isLoading, showAlert, displayAlert, registerUser } = useAppContext();
   const toggleMember = () => {
     setValues({ ...values, isMember: !values.isMember });
-  };
-
-  const handleChange = (e) => {
-    setValues({ ...values, [e.target.name]: e.target.value });
   };
 
   const onSubmit = (e) => {
@@ -29,13 +25,23 @@ const Register = () => {
       displayAlert();
       return;
     }
-    console.log(values);
+    const currentUser = { name, email, password };
+    if (isMember) {
+      console.log('ya está registrado');
+    } else {
+      registerUser(currentUser);
+    }
+    console.log('valores!!', values);
+  };
+
+  const handleChange = (e) => {
+    setValues({ ...values, [e.target.name]: e.target.value });
   };
   return (
     <Wrapper className="full-page">
       <form className="form" onSubmit={onSubmit}>
         <Logo />
-        {values.showAlert && <Alert />}
+        {showAlert && <Alert />}
         <h3>{values.isMember ? 'Acceder' : 'Registrarse'}</h3>
         {!values.isMember && (
           <FormRow
@@ -60,7 +66,7 @@ const Register = () => {
           labelText="contraseña"
         />
 
-        <button type="submit" className="btn btn-block">
+        <button type="submit" className="btn btn-block" disabled={isLoading}>
           Enviar
         </button>
         <p>
