@@ -41,7 +41,7 @@ const AppProvider = ({ children }) => {
     dispatch({ type: REGISTER_USER_BEGIN });
     try {
       const response = await axios.post('/api/v1/auth/register', currentUser);
-      console.log('RESPUESTA REGISTROBEGIN', response);
+      console.log(response);
       const { user, token, location } = response.data;
       dispatch({
         type: REGISTER_USER_SUCCESS,
@@ -58,7 +58,7 @@ const AppProvider = ({ children }) => {
       // location,
       // })
     } catch (error) {
-      console.log('RESPUESTA ERROR', error.response);
+      console.log(error.response);
       dispatch({
         type: REGISTER_USER_ERROR,
         payload: { msg: error.response.data.msg },
