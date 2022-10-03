@@ -3,6 +3,7 @@ import express from 'express';
 const app = express();
 import dotenv from 'dotenv';
 dotenv.config();
+import morgan from 'morgan';
 
 // middleware
 import notFoundMiddleware from './middleware/not-found.js';
@@ -10,6 +11,10 @@ import errorHandlerMiddleware from './middleware/error-handler.js';
 import connectDB from './db/connect.js';
 import authRouter from './routes/authRoutes.js';
 import newsRouter from './routes/newsRouter.js';
+
+if (process.env.NODE_ENV !== 'production') {
+  app.use(morgan('dev'));
+}
 
 app.use(express.json());
 
