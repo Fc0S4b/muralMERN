@@ -5,4 +5,16 @@ import Navbar from './Navbar';
 import SmallSidebar from './SmallSidebar';
 import BigSidebar from './BigSidebar';
 import FootNav from './FootNav';
-export { Logo, FormRow, Alert, Navbar, SmallSidebar, BigSidebar, FootNav };
+import NightMode from './NightMode';
+import NavLinks from './NavLinks';
+export {
+  Logo,
+  FormRow,
+  Alert,
+  Navbar,
+  SmallSidebar,
+  BigSidebar,
+  FootNav,
+  NightMode,
+  NavLinks,
+};

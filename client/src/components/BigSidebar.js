@@ -1,6 +1,7 @@
 import Wrapper from '../assets/wrappers/BigSidebar';
 import { useAppContext } from '../context/appContext';
-
+import { NightMode, NavLinks } from '../components';
+import sidebarLinks from '../utils/sidebar-links';
 const BigSidebar = () => {
   const { showSidebar } = useAppContext();
   return (
@@ -10,8 +11,12 @@ const BigSidebar = () => {
           showSidebar ? 'sidebar-container show-sidebar' : 'sidebar-container'
         }
       >
-        {/* <h1>hola</h1> */}
-        <div className="content">{/* <h1>chao</h1> */}</div>
+        <div className="content">
+          <header>
+            <NightMode />
+          </header>
+          <NavLinks links={sidebarLinks} />
+        </div>
       </div>
     </Wrapper>
   );

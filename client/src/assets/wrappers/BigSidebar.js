@@ -18,6 +18,10 @@ const Wrapper = styled.aside`
     .show-sidebar {
       margin-left: 0;
     }
+    .nav-links {
+      display: flex;
+      flex-direction: column;
+    }
   }
 `;
 
