@@ -29,6 +29,7 @@ export const initialState = {
   token: token,
   userLocation: userLocation || '',
   jobLocation: userLocation || '',
+  showSidebar: true,
 };
 
 const AppContext = React.createContext();

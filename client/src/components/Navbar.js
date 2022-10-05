@@ -1,4 +1,5 @@
 import Wrapper from '../assets/wrappers/Navbar';
+import Logo from './Logo';
 import {
   TbLayoutSidebarLeftExpand,
   TbLayoutSidebarLeftCollapse,
@@ -11,6 +12,9 @@ const Navbar = () => {
           <TbLayoutSidebarLeftExpand />
           {/* {showSidebar? <TbLayoutSidebarLeftCollapse/>:<TbLayoutSidebarLeftExpand /> } */}
         </button>
+
+        <h3 className="logo-text">dashboard</h3>
+        <Logo className="logo" />
       </div>
     </Wrapper>
   );

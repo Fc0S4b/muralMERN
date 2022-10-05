@@ -8,8 +8,9 @@ const Wrapper = styled.section`
   }
   .dashboard-page {
     width: 90vw;
-    margin: 0 auto;
+    margin: 50px auto;
     padding: 2rem 0;
+    height: 70vh;
   }
 
   @media (min-width: 992px) {

@@ -1,4 +1,5 @@
+import Wrapper from '../../assets/wrappers/Stats';
 const Stats = () => {
-  return <h1>Stats</h1>;
+  return <Wrapper>Stats</Wrapper>;
 };
 export default Stats;
