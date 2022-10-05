@@ -13,7 +13,7 @@ const NavLinks = ({ links }) => {
               isActive ? 'nav-link active' : 'nav-link'
             }
           >
-            <span className="icon">{icon}</span>
+            <div className="icon icon-text">{icon}</div>
             {text}
           </NavLink>
         );

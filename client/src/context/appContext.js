@@ -30,6 +30,7 @@ export const initialState = {
   userLocation: userLocation || '',
   jobLocation: userLocation || '',
   showSidebar: true,
+  title: 'Dashboard',
 };
 
 const AppContext = React.createContext();

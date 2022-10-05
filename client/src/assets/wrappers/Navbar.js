@@ -18,6 +18,12 @@ const Wrapper = styled.nav`
   .logo {
     height: 50px;
   }
+  .toggle-btn {
+    font-size: 25px;
+    background: transparent;
+    border: transparent;
+    cursor: pointer;
+  }
 `;
 
 export default Wrapper;
