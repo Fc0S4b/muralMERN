@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 const Wrapper = styled.nav`
-  background: green;
+  background: var(--primary-400);
   width: 100%;
   position: sticky;
   top: 0;
-  /* margin-bottom: 30px; */
+
   align-items: center;
   .nav-center {
     display: flex;
@@ -13,7 +13,8 @@ const Wrapper = styled.nav`
     justify-content: space-between;
     align-items: center;
     padding: 0.4rem;
-    background: yellow;
+    background: var(--primary-300);
+    color: var(--grey-100);
   }
   .logo {
     height: 50px;
@@ -23,6 +24,10 @@ const Wrapper = styled.nav`
     background: transparent;
     border: transparent;
     cursor: pointer;
+    color: var(--color-4-100);
+  }
+  .toggle-btn:hover {
+    color: var(--color-5-100);
   }
 `;
 

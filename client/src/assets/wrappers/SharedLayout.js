@@ -4,7 +4,7 @@ const Wrapper = styled.section`
   .dashboard {
     display: grid;
     grid-template-columns: 1fr;
-    background: blue;
+    background: var(--primary-100);
   }
   .dashboard-page {
     width: 90vw;
@@ -19,7 +19,7 @@ const Wrapper = styled.section`
     }
     .dashboard-page {
       width: 90%;
-      background: red;
+      background: var(--color-2-100);
     }
   }
 `;

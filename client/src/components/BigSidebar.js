@@ -2,6 +2,7 @@ import Wrapper from '../assets/wrappers/BigSidebar';
 import { useAppContext } from '../context/appContext';
 import { NightMode, NavLinks } from '../components';
 import sidebarLinks from '../utils/sidebar-links';
+import { AiOutlinePoweroff } from 'react-icons/ai';
 const BigSidebar = () => {
   const { showSidebar } = useAppContext();
   return (
@@ -16,6 +17,14 @@ const BigSidebar = () => {
             <NightMode />
           </header>
           <NavLinks links={sidebarLinks} />
+        </div>
+        <div className="btn-container">
+          <button>
+            <span>
+              <AiOutlinePoweroff />
+            </span>
+          </button>
+          <h3>Cerrar sesión</h3>
         </div>
       </div>
     </Wrapper>

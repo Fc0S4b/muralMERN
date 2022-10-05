@@ -10,8 +10,9 @@ const NavLinks = ({ links }) => {
             to={path}
             key={id}
             className={({ isActive }) =>
-              isActive ? 'nav-link active' : 'nav-link'
+              isActive ? 'nav-link active' : 'nav-link '
             }
+            end
           >
             <div className="icon icon-text">{icon}</div>
             {text}
