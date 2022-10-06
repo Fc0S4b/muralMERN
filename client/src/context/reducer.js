@@ -131,6 +131,7 @@ const reducer = (state, action) => {
       jobLocation: '',
     };
   }
+
   throw new Error(`no such action : ${action.type}`);
 };
 
