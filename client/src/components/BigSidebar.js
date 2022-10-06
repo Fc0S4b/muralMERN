@@ -4,7 +4,7 @@ import { NightMode, NavLinks } from '../components';
 import sidebarLinks from '../utils/sidebar-links';
 import { AiOutlinePoweroff } from 'react-icons/ai';
 const BigSidebar = () => {
-  const { showSidebar } = useAppContext();
+  const { showSidebar, toggleSidebar } = useAppContext();
   return (
     <Wrapper>
       <div
@@ -16,7 +16,7 @@ const BigSidebar = () => {
           <header>
             <NightMode />
           </header>
-          <NavLinks links={sidebarLinks} />
+          <NavLinks links={sidebarLinks} toggleSidebar={toggleSidebar} />
         </div>
         <div className="btn-container">
           <button>

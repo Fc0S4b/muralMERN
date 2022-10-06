@@ -14,6 +14,7 @@ import {
   SETUP_USER_BEGIN,
   SETUP_USER_SUCCESS,
   SETUP_USER_ERROR,
+  TOGGLE_SIDEBAR,
 } from './actions';
 
 const token = localStorage.getItem('token');
@@ -129,6 +130,9 @@ const AppProvider = ({ children }) => {
     }
     clearAlert();
   };
+  const toggleSidebar = () => {
+    dispatch({ type: TOGGLE_SIDEBAR });
+  };
 
   return (
     <AppContext.Provider
@@ -139,6 +143,7 @@ const AppProvider = ({ children }) => {
         registerUser,
         loginUser,
         setupUser,
+        toggleSidebar,
       }}
     >
       {children}

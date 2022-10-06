@@ -6,12 +6,12 @@ import {
 } from 'react-icons/tb';
 import { useAppContext } from '../context/appContext';
 const Navbar = () => {
-  const { showSidebar, title } = useAppContext();
+  const { showSidebar, title, toggleSidebar } = useAppContext();
 
   return (
     <Wrapper>
       <div className="nav-center">
-        <button className="toggle-btn" onClick={console.log('toggleSidebar')}>
+        <button className="toggle-btn" onClick={toggleSidebar}>
           {showSidebar ? (
             <TbLayoutSidebarLeftCollapse />
           ) : (

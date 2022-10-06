@@ -11,6 +11,7 @@ const Wrapper = styled.aside`
       height: 100%;
       width: 150px;
       margin-left: -150px;
+      transition: var(--transition);
     }
     .content {
       position: sticky;
@@ -35,7 +36,7 @@ const Wrapper = styled.aside`
       cursor: pointer;
     }
     .nightmode:hover {
-      color: var(--primary-700);
+      color: var(--color-3-900);
     }
     .nav-link {
       font-size: 20px;
