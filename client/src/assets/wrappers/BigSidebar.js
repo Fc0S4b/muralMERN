@@ -13,9 +13,9 @@ const Wrapper = styled.aside`
       margin-left: -150px;
       transition: var(--transition);
     }
+    position: sticky;
+    top: 0;
     .content {
-      position: sticky;
-      top: 0;
       display: flex;
       flex-direction: column;
       justify-content: space-between;

@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
+import { useAppContext } from '../context/appContext';
 
-const NavLinks = ({ links, toggleSidebar }) => {
+const NavLinks = ({ links, toggleSidebar, name }) => {
   return (
     <div className="nav-links">
       {links.map((link) => {
@@ -16,7 +17,7 @@ const NavLinks = ({ links, toggleSidebar }) => {
             end
           >
             <div className="icon icon-text">{icon}</div>
-            <span className="text">{text}</span>
+            <span className="text">{name || text}</span>
           </NavLink>
         );
       })}
