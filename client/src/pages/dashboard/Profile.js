@@ -18,8 +18,8 @@ const Profile = () => {
     //   displayAlert();
     //   return
     // }
+    updateUser({ name, email, lastName, location });
   };
-  updateUser({ name, email, lastName, location });
   return (
     <Wrapper>
       <form className="form" onSubmit={handleSubmit}>
