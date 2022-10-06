@@ -6,6 +6,16 @@ const Wrapper = styled.section`
     max-width: 100%;
     width: 100%;
   }
+  .form-input:focus {
+    outline: none;
+    border-bottom: 1px solid var(--primary-200);
+  }
+  .form-input {
+    font-size: 20px;
+    color: var(--grey-700);
+    box-shadow: var(--inset-shadow);
+  }
+
   @media (min-width: 992px) {
     .form-center {
       display: grid;

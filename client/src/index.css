@@ -79,7 +79,7 @@ Globals
   --fluid-width: 90vw;
   /* shadows */
   --offset-shadow: 0px -2px 5px rgba(255, 255, 255, 0.319), 0 7px 6px rgba(0, 0, 0, 0.2);
-  --inset-shadow: inset 0px -2px 5px rgba(255, 255, 255, 0.1), inset 0 4px 5px rgba(0, 0, 0, 0.2);
+  --inset-shadow: inset 0px -2px 1px rgba(255, 255, 255, 0.1), inset 0 4px 5px rgba(0, 0, 0, 0.2);
   
   /* paragraphs */
   --narrow-line-height: 1.5em;
