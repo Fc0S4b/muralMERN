@@ -1,9 +1,13 @@
 import Wrapper from '../assets/wrappers/SmallSidebar';
-
+import { NavLinks, NightMode } from '../components';
+import sidebarLinks from '../utils/sidebar-links';
 const SmallSidebar = () => {
   return (
     <Wrapper>
-      <h1>SmallSidebar</h1>
+      <div className="content">
+        <NightMode />
+        <NavLinks links={sidebarLinks} />
+      </div>
     </Wrapper>
   );
 };

@@ -29,6 +29,17 @@ const Wrapper = styled.nav`
   .toggle-btn:hover {
     color: var(--color-5-100);
   }
+  @media (max-width: 992px) {
+    .toggle-btn {
+      display: none;
+    }
+    .logo {
+      height: 40px;
+    }
+    .logo-text {
+      font-size: 24px;
+    }
+  }
 `;
 
 export default Wrapper;

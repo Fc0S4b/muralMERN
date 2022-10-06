@@ -11,6 +11,7 @@ const Wrapper = styled.section`
     margin: 50px auto;
     padding: 2rem 0;
     height: 70vh;
+    transition: var(--transition);
   }
 
   @media (min-width: 992px) {
@@ -20,6 +21,7 @@ const Wrapper = styled.section`
     .dashboard-page {
       width: 90%;
       background: var(--color-2-100);
+      transition: var(--transition);
     }
   }
 `;
