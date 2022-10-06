@@ -39,6 +39,17 @@ const Wrapper = styled.aside`
   .nightmode:hover {
     color: var(--color-5-900);
   }
+  .off-btn {
+    background: transparent;
+    border: transparent;
+    margin-right: 30px;
+    cursor: pointer;
+    color: var(--color-5-900);
+  }
+
+  .off-btn:hover {
+    color: var(--primary-500);
+  }
 `;
 
 export default Wrapper;
