@@ -8,9 +8,11 @@ const Wrapper = styled.section`
   }
   .dashboard-page {
     width: 90vw;
-    margin: -30px auto;
+    /* margin: -30px auto; */
     /* padding: 1rem 0; */
-    height: 70vh;
+    /* height: 70vh; */
+    margin: 0 auto;
+    padding: 2rem 0;
     transition: var(--transition);
   }
 
@@ -22,7 +24,7 @@ const Wrapper = styled.section`
       width: 90%;
       background: var(--color-2-100);
       transition: var(--transition);
-      margin: 0px auto;
+      /* margin: 0px auto; */
     }
   }
 `;

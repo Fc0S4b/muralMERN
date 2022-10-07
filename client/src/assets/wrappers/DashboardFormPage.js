@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 const Wrapper = styled.section`
-  padding: 3rem 2rem 1rem;
+  padding: 0.5rem 2rem;
+  margin-bottom: 3rem;
   .form {
     max-width: 100%;
     width: 100%;
@@ -14,6 +15,17 @@ const Wrapper = styled.section`
     font-size: 20px;
     color: var(--grey-700);
     box-shadow: var(--inset-shadow);
+  }
+  .form-select {
+    text-transform: capitalize;
+    box-shadow: var(--inset-shadow);
+  }
+  .form-select:focus {
+    outline: none;
+    border-bottom: 1px solid var(--primary-200);
+  }
+  .boxText {
+    width: 100%;
   }
 
   @media (min-width: 992px) {

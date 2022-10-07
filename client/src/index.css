@@ -245,7 +245,8 @@ cursor: pointer;
 .form-input,
 .form-select,
 .btn-block {
-  height: 30px;
+  height: 35px;
+
 }
 .form-row {
   margin-bottom: 1rem;

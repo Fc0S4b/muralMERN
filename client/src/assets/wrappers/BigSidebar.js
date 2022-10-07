@@ -13,15 +13,15 @@ const Wrapper = styled.aside`
       margin-left: -150px;
       transition: var(--transition);
     }
-    position: sticky;
-    top: 0;
     .content {
+      position: sticky;
+      top: 0;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
       padding: 30px 0;
-      height: calc(100% - 4rem);
+      height: calc(70% - 4rem);
     }
     .show-sidebar {
       margin-left: 0;
@@ -51,6 +51,8 @@ const Wrapper = styled.aside`
       font-size: 21px;
     }
     .btn-container {
+      position: sticky;
+      top: 90%;
       display: flex;
       flex-direction: column;
       justify-content: center;

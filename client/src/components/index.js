@@ -7,6 +7,7 @@ import BigSidebar from './BigSidebar';
 import FootNav from './FootNav';
 import NightMode from './NightMode';
 import NavLinks from './NavLinks';
+import FormRowSelect from './FormRowSelect';
 export {
   Logo,
   FormRow,
@@ -17,4 +18,5 @@ export {
   FootNav,
   NightMode,
   NavLinks,
+  FormRowSelect,
 };

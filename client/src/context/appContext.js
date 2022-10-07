@@ -51,6 +51,7 @@ export const initialState = {
   newType: 'información',
   statusOptions: ['pendiente', 'lista', 'compartida', 'caducada'],
   status: 'pendiente',
+  newText: '',
 };
 
 const AppContext = React.createContext();
