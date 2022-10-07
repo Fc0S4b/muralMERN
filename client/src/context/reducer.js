@@ -18,6 +18,9 @@ import {
   UPDATE_USER_ERROR,
   HANDLE_CHANGE,
   CLEAR_VALUES,
+  CREATE_NEW_BEGIN,
+  CREATE_NEW_SUCCESS,
+  CREATE_NEW_ERROR,
 } from './actions';
 
 const reducer = (state, action) => {
@@ -178,6 +181,27 @@ const reducer = (state, action) => {
       status: 'pendiente',
     };
     return { ...state, ...initialState };
+  }
+  if (action.type === CREATE_NEW_BEGIN) {
+    return { ...state, isLoading: true };
+  }
+  if (action.type === CREATE_NEW_SUCCESS) {
+    return {
+      ...state,
+      isLoading: false,
+      showAlert: true,
+      alertType: 'success',
+      alertText: 'Nueva noticia creada!',
+    };
+  }
+  if (action.type === CREATE_NEW_ERROR) {
+    return {
+      ...state,
+      isLoading: false,
+      showAlert: true,
+      alertType: 'danger',
+      alertText: action.payload.msg,
+    };
   }
 
   throw new Error(`no such action : ${action.type}`);

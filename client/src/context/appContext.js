@@ -21,6 +21,9 @@ import {
   UPDATE_USER_ERROR,
   HANDLE_CHANGE,
   CLEAR_VALUES,
+  CREATE_NEW_BEGIN,
+  CREATE_NEW_SUCCESS,
+  CREATE_NEW_ERROR,
 } from './actions';
 
 const token = localStorage.getItem('token');
@@ -218,6 +221,31 @@ const AppProvider = ({ children }) => {
     clearAlert();
   };
 
+  const createNew = async () => {
+    dispatch({ type: CREATE_NEW_BEGIN });
+    try {
+      const { headline, description, newLocation, newType, status } = state;
+      await authFetch.post('/news', {
+        headline,
+        description,
+        newLocation,
+        newType,
+        status,
+      });
+      dispatch({
+        type: CREATE_NEW_SUCCESS,
+      });
+      dispatch({ type: CLEAR_VALUES });
+    } catch (error) {
+      if (error.response.status === 401) return;
+      dispatch({
+        type: CREATE_NEW_ERROR,
+        payload: { msg: error.response.data.msg },
+      });
+    }
+    clearAlert();
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -232,6 +260,7 @@ const AppProvider = ({ children }) => {
         updateUser,
         handleChange,
         clearValues,
+        createNew,
       }}
     >
       {children}

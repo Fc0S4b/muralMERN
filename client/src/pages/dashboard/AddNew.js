@@ -4,6 +4,7 @@ import Wrapper from '../../assets/wrappers/DashboardFormPage';
 
 const AddNew = () => {
   const {
+    isLoading,
     isEditing,
     showAlert,
     displayAlert,
@@ -17,14 +18,20 @@ const AddNew = () => {
     newText,
     handleChange,
     clearValues,
+    createNew,
   } = useAppContext();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!headline || !description || !newLocation) {
-      displayAlert();
+    // if (!headline || !description || !newLocation) {
+    //   displayAlert();
+    //   return;
+    // }
+    if (isEditing) {
+      // eventually editNew()
       return;
     }
+    createNew();
     console.log('create new');
   };
   const handleNewInput = (e) => {
@@ -104,6 +111,7 @@ const AddNew = () => {
             className="btn btn-block submit-btn"
             type="submit"
             onClick={handleSubmit}
+            disabled={isLoading}
           >
             Enviar
           </button>
