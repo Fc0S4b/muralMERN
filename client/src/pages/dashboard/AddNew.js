@@ -15,6 +15,8 @@ const AddNew = () => {
     status,
     statusOptions,
     newText,
+    handleChange,
+    clearValues,
   } = useAppContext();
 
   const handleSubmit = (e) => {
@@ -26,9 +28,7 @@ const AddNew = () => {
     console.log('create new');
   };
   const handleNewInput = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
-    console.log(`${name}:${value}`);
+    handleChange({ name: e.target.name, value: e.target.value });
   };
 
   return (
@@ -56,7 +56,7 @@ const AddNew = () => {
           {/* location*/}
           <FormRow
             type="text"
-            name="location"
+            name="newLocation"
             value={newLocation}
             labelText="Ubicación"
             handleChange={handleNewInput}
@@ -91,6 +91,15 @@ const AddNew = () => {
           ></textarea>
         </div>
         <div className="btn-container">
+          <button
+            className="btn btn-block clear-btn"
+            onClick={(e) => {
+              e.preventDefault();
+              clearValues();
+            }}
+          >
+            Limpiar campos
+          </button>
           <button
             className="btn btn-block submit-btn"
             type="submit"

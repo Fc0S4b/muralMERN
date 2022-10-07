@@ -27,6 +27,15 @@ const Wrapper = styled.section`
   .boxText {
     width: 100%;
   }
+  .clear-btn {
+    background: var(--grey-500);
+  }
+  .clear-btn:hover {
+    background: var(--clr-black);
+  }
+  .btn {
+    margin-bottom: 20px;
+  }
 
   @media (min-width: 992px) {
     .form-center {
@@ -42,6 +51,7 @@ const Wrapper = styled.section`
     }
     .btn-container .btn {
       width: 30%;
+      margin-right: 20px;
     }
   }
 `;
