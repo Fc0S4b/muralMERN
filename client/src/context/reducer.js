@@ -21,6 +21,8 @@ import {
   CREATE_NEW_BEGIN,
   CREATE_NEW_SUCCESS,
   CREATE_NEW_ERROR,
+  GET_NEWS_BEGIN,
+  GET_NEWS_SUCCESS,
 } from './actions';
 
 const reducer = (state, action) => {
@@ -201,6 +203,18 @@ const reducer = (state, action) => {
       showAlert: true,
       alertType: 'danger',
       alertText: action.payload.msg,
+    };
+  }
+  if (action.type === GET_NEWS_BEGIN) {
+    return { ...state, isLoading: true, showAlert: false };
+  }
+  if (action.type === GET_NEWS_SUCCESS) {
+    return {
+      ...state,
+      isLoading: false,
+      news: action.payload.news,
+      totalNews: action.payload.totalNews,
+      numOfPages: action.payload.numOfPages,
     };
   }
 

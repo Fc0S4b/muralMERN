@@ -16,7 +16,10 @@ const deleteNew = async (req, res) => {
   return res.send('delete new');
 };
 const getAllNews = async (req, res) => {
-  return res.send('get all news');
+  const news = await New.find({ createdBy: req.user.userId });
+  res
+    .status(StatusCodes.OK)
+    .json({ news, totalNews: news.length, numOfPages: 1 });
 };
 const updateNew = async (req, res) => {
   return res.send('update new');

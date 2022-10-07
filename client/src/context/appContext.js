@@ -1,4 +1,4 @@
-import React, { useState, useReducer, useContext } from 'react';
+import React, { useState, useReducer, useContext, useEffect } from 'react';
 import reducer from './reducer';
 import axios from 'axios';
 
@@ -24,6 +24,8 @@ import {
   CREATE_NEW_BEGIN,
   CREATE_NEW_SUCCESS,
   CREATE_NEW_ERROR,
+  GET_NEWS_BEGIN,
+  GET_NEWS_SUCCESS,
 } from './actions';
 
 const token = localStorage.getItem('token');
@@ -57,6 +59,10 @@ export const initialState = {
   statusOptions: ['pendiente', 'lista', 'compartida', 'caducada'],
   status: 'pendiente',
   newText: '',
+  news: [],
+  totalNews: 0,
+  numOfPages: 1,
+  page: 1,
 };
 
 const AppContext = React.createContext();
@@ -246,6 +252,27 @@ const AppProvider = ({ children }) => {
     clearAlert();
   };
 
+  const getNews = async () => {
+    let url = `/news`;
+    dispatch({ type: GET_NEWS_BEGIN });
+    try {
+      const { data } = await authFetch(url);
+      const { news, totalNews, numOfPages } = data;
+      dispatch({
+        type: GET_NEWS_SUCCESS,
+        payload: {
+          news,
+          totalNews,
+          numOfPages,
+        },
+      });
+    } catch (error) {
+      console.log(error.response);
+      // logoutUser();
+    }
+    clearAlert();
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -261,6 +288,7 @@ const AppProvider = ({ children }) => {
         handleChange,
         clearValues,
         createNew,
+        getNews,
       }}
     >
       {children}
