@@ -33,9 +33,24 @@ export const initialState = {
   user: user ? JSON.parse(user) : null,
   token: token,
   userLocation: userLocation || '',
-  newLocation: userLocation || '',
   showSidebar: true,
   title: 'Dashboard',
+  isEditing: false,
+  editNewId: '',
+  headline: '',
+  description: '',
+  newLocation: userLocation || '',
+  newTypeOptions: [
+    'saludo',
+    'información',
+    'noticia',
+    'reseña',
+    'artículo',
+    'otro',
+  ],
+  newType: 'información',
+  statusOptions: ['pendiente', 'lista', 'compartida', 'caducada'],
+  status: 'pendiente',
 };
 
 const AppContext = React.createContext();
