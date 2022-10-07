@@ -13,6 +13,9 @@ import {
   SETUP_USER_ERROR,
   TOGGLE_SIDEBAR,
   LOGOUT_USER,
+  UPDATE_USER_BEGIN,
+  UPDATE_USER_SUCCESS,
+  UPDATE_USER_ERROR,
 } from './actions';
 
 const reducer = (state, action) => {
@@ -44,7 +47,7 @@ const reducer = (state, action) => {
       user: action.payload.user,
       token: action.payload.token,
       userLocation: action.payload.location,
-      jobLocation: action.payload.user.location,
+      newLocation: action.payload.user.location,
       isLoading: false,
       showAlert: true,
       alertType: 'success',
@@ -73,7 +76,7 @@ const reducer = (state, action) => {
       user: action.payload.user,
       token: action.payload.token,
       userLocation: action.payload.location,
-      jobLocation: action.payload.location,
+      newLocation: action.payload.location,
       showAlert: true,
       alertType: 'success',
       alertText: 'Éxito, redirigiendo',
@@ -101,7 +104,7 @@ const reducer = (state, action) => {
       user: action.payload.user,
       token: action.payload.token,
       userLocation: action.payload.location,
-      jobLocation: action.payload.location,
+      newLocation: action.payload.location,
       showAlert: true,
       alertType: 'success',
       alertText: action.payload.alertText,
@@ -128,7 +131,35 @@ const reducer = (state, action) => {
       user: null,
       token: null,
       userLocation: '',
-      jobLocation: '',
+      newLocation: '',
+    };
+  }
+  if (action.type === UPDATE_USER_BEGIN) {
+    return {
+      ...state,
+      isLoading: true,
+    };
+  }
+  if (action.type === UPDATE_USER_SUCCESS) {
+    return {
+      ...state,
+      isLoading: false,
+      token: action.payload.token,
+      user: action.payload.user,
+      userLocation: action.payload.location,
+      newLocation: action.payload.location,
+      showAlert: true,
+      alertType: 'success',
+      alertText: 'Perfil actualizado!',
+    };
+  }
+  if (action.type === UPDATE_USER_ERROR) {
+    return {
+      ...state,
+      isLoading: false,
+      showAlert: true,
+      alertType: 'danger',
+      alertText: action.payload.msg,
     };
   }
 

@@ -14,10 +14,10 @@ const Profile = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // if(!name || !email || !lastName || !location){
-    //   displayAlert();
-    //   return
-    // }
+    if (!name || !email || !lastName || !location) {
+      displayAlert();
+      return;
+    }
     updateUser({ name, email, lastName, location });
   };
   return (
@@ -39,20 +39,20 @@ const Profile = () => {
             name="lastName"
             value={lastName}
             labelText="Apellido"
-            handleChange={(e) => setName(e.target.value)}
+            handleChange={(e) => setLastName(e.target.value)}
           />
           <FormRow
             type="email"
             name="email"
             value={email}
-            handleChange={(e) => setName(e.target.value)}
+            handleChange={(e) => setEmail(e.target.value)}
           />
           <FormRow
             type="text"
             name="location"
             value={location}
             labelText="Localidad"
-            handleChange={(e) => setName(e.target.value)}
+            handleChange={(e) => setLocation(e.target.value)}
           />
         </div>
         <div className="btn-container">
