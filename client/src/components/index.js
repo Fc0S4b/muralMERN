@@ -8,6 +8,11 @@ import FootNav from './FootNav';
 import NightMode from './NightMode';
 import NavLinks from './NavLinks';
 import FormRowSelect from './FormRowSelect';
+import NewInfo from './NewInfo';
+import NewPost from './NewPost';
+import NewsContainer from './NewsContainer';
+import SearchContainer from './SearchContainer';
+
 export {
   Logo,
   FormRow,
@@ -19,4 +24,8 @@ export {
   NightMode,
   NavLinks,
   FormRowSelect,
+  NewInfo,
+  NewPost,
+  NewsContainer,
+  SearchContainer,
 };

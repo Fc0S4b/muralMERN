@@ -1,4 +1,11 @@
+import { NewsContainer, SearchContainer } from '../../components';
+
 const AllNews = () => {
-  return <h1>AllNews</h1>;
+  return (
+    <>
+      <SearchContainer />
+      <NewsContainer />
+    </>
+  );
 };
 export default AllNews;

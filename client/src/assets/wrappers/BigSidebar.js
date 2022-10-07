@@ -21,7 +21,7 @@ const Wrapper = styled.aside`
       justify-content: space-between;
       align-items: center;
       padding: 30px 0;
-      height: calc(70% - 4rem);
+      height: 550px;
     }
     .show-sidebar {
       margin-left: 0;

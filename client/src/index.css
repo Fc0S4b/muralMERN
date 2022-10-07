@@ -285,3 +285,32 @@ cursor: pointer;
    border-bottom: 5px solid var(--clr-green-dark);
   background: var(--clr-green-light);
 }
+
+/* loading */
+@keyframes spinner {
+  from {
+    transform: rotate(-360deg);
+    border-top-color: var(--primary-400);
+
+  }
+  50%{
+    border-top-color: var(--primary-800);
+  }
+  to{
+    border-top-color: var(--primary-400);
+  }
+}
+
+.loading {
+  width: 6rem;
+  height: 6rem;
+  border: 1px solid var(--grey-400);
+  border-radius: 50%;
+  border-top-color:  var(--primary-500);
+  border-top: 5px solid  var(--primary-500);
+  box-shadow: var(--inset-shadow);
+  animation: spinner 2s linear infinite;
+}
+.loading-center {
+  margin: 0 auto;
+}
