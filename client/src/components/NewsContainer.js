@@ -2,7 +2,7 @@ import { useAppContext } from '../context/appContext';
 import { useEffect } from 'react';
 import Loading from './Loading';
 import NewPost from './NewPost';
-import Wrapper from '../assets/wrappers/JobsContainer';
+import Wrapper from '../assets/wrappers/NewsContainer';
 
 const NewsContainer = () => {
   const { getNews, news, isLoading, page, totalNews } = useAppContext();

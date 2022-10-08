@@ -273,6 +273,13 @@ const AppProvider = ({ children }) => {
     clearAlert();
   };
 
+  const setEditNew = (id) => {
+    console.log(`set edit new: ${id}`);
+  };
+  const deleteNew = (id) => {
+    console.log(`delete : ${id}`);
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -289,6 +296,8 @@ const AppProvider = ({ children }) => {
         clearValues,
         createNew,
         getNews,
+        setEditNew,
+        deleteNew,
       }}
     >
       {children}
