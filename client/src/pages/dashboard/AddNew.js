@@ -19,20 +19,20 @@ const AddNew = () => {
     handleChange,
     clearValues,
     createNew,
+    editNew,
   } = useAppContext();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // if (!headline || !description || !newLocation) {
-    //   displayAlert();
-    //   return;
-    // }
+    if (!headline || !description || !newLocation) {
+      displayAlert();
+      return;
+    }
     if (isEditing) {
-      // eventually editNew()
+      editNew();
       return;
     }
     createNew();
-    console.log('create new');
   };
   const handleNewInput = (e) => {
     handleChange({ name: e.target.name, value: e.target.value });

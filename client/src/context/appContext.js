@@ -26,6 +26,7 @@ import {
   CREATE_NEW_ERROR,
   GET_NEWS_BEGIN,
   GET_NEWS_SUCCESS,
+  SET_EDIT_NEW,
 } from './actions';
 
 const token = localStorage.getItem('token');
@@ -274,7 +275,15 @@ const AppProvider = ({ children }) => {
   };
 
   const setEditNew = (id) => {
-    console.log(`set edit new: ${id}`);
+    dispatch({
+      type: SET_EDIT_NEW,
+      payload: {
+        id,
+      },
+    });
+  };
+  const editNew = () => {
+    console.log('edit new');
   };
   const deleteNew = (id) => {
     console.log(`delete : ${id}`);
@@ -298,6 +307,7 @@ const AppProvider = ({ children }) => {
         getNews,
         setEditNew,
         deleteNew,
+        editNew,
       }}
     >
       {children}

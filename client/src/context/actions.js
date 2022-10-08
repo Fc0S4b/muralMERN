@@ -29,3 +29,5 @@ export const CREATE_NEW_ERROR = 'CREATE_NEW_ERROR';
 
 export const GET_NEWS_BEGIN = 'GET_JOBS_BEGIN';
 export const GET_NEWS_SUCCESS = 'GET_JOBS_SUCCESS';
+
+export const SET_EDIT_NEW = 'SET_EDIT_NEW';

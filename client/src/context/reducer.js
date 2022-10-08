@@ -23,6 +23,7 @@ import {
   CREATE_NEW_ERROR,
   GET_NEWS_BEGIN,
   GET_NEWS_SUCCESS,
+  SET_EDIT_NEW,
 } from './actions';
 
 const reducer = (state, action) => {
@@ -215,6 +216,24 @@ const reducer = (state, action) => {
       news: action.payload.news,
       totalNews: action.payload.totalNews,
       numOfPages: action.payload.numOfPages,
+    };
+  }
+  if (action.type === SET_EDIT_NEW) {
+    const newPost = state.news.find(
+      (singleNew) => singleNew._id === action.payload.id
+    );
+    // agregar texto de textarea
+    const { _id, headline, description, newLocation, newType, status } =
+      newPost;
+    return {
+      ...state,
+      isEditing: true,
+      editNewId: _id,
+      headline,
+      description,
+      newLocation,
+      newType,
+      status,
     };
   }
 
