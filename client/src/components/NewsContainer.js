@@ -21,10 +21,10 @@ const NewsContainer = () => {
   }
   return (
     <Wrapper>
-      <h5>
-        {totalNews} Noticia{news.length > 1 && 's'} encontrada
+      <h3>
+        {totalNews} Publicaci{(news.length > 1 && 'ones') || 'ón'} encontrada
         {news.length > 1 && 's'}
-      </h5>
+      </h3>
       <div className="news">
         {news.map((singleNew) => {
           return <NewPost key={singleNew._id} {...singleNew} />;

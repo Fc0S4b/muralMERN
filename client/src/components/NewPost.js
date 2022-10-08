@@ -3,11 +3,10 @@ import Wrapper from '../assets/wrappers/NewPost';
 import { GrLocation } from 'react-icons/gr';
 import { BsFillCalendarWeekFill } from 'react-icons/bs';
 import { BiNews } from 'react-icons/bi';
-
 import { Link } from 'react-router-dom';
 import { useAppContext } from '../context/appContext';
 import NewInfo from './NewInfo';
-
+import ShareLinks from './ShareLinks';
 const NewPost = ({
   _id,
   headline,
@@ -25,8 +24,8 @@ const NewPost = ({
       <header>
         <div className="main-icon">{headline.charAt(0)}</div>
         <div className="info">
-          <h5>{headline}</h5>
-          <h5>{description}</h5>
+          <h4>{headline}</h4>
+          <p>{description}</p>
         </div>
       </header>
       <div className="content">
@@ -37,21 +36,26 @@ const NewPost = ({
           <div className={`status ${status}`}>{status}</div>
         </div>
         <footer>
-          <div className="actions">
-            <Link
-              to="/add-new"
-              onClick={() => setEditNew(_id)}
-              className="btn edit-btn"
-            >
-              Editar
-            </Link>
-            <button
-              type="button"
-              className="btn delete-btn"
-              onClick={() => deleteNew(_id)}
-            >
-              Eliminar
-            </button>
+          <div className="actions-container">
+            <div className="actions">
+              <Link
+                to="/add-new"
+                onClick={() => setEditNew(_id)}
+                className="btn edit-btn"
+              >
+                Editar
+              </Link>
+              <button
+                type="button"
+                className="btn delete-btn"
+                onClick={() => deleteNew(_id)}
+              >
+                Eliminar
+              </button>
+            </div>
+            <div className="share-links">
+              <ShareLinks />
+            </div>
           </div>
         </footer>
       </div>
