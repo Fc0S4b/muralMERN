@@ -28,6 +28,9 @@ import {
   GET_NEWS_SUCCESS,
   SET_EDIT_NEW,
   DELETE_NEW_BEGIN,
+  EDIT_NEW_BEGIN,
+  EDIT_NEW_SUCCESS,
+  EDIT_NEW_ERROR,
 } from './actions';
 
 const token = localStorage.getItem('token');
@@ -283,8 +286,30 @@ const AppProvider = ({ children }) => {
       },
     });
   };
-  const editNew = () => {
-    console.log('edit new');
+  const editNew = async () => {
+    dispatch({ type: EDIT_NEW_BEGIN });
+    try {
+      const { headline, description, newLocation, newType, status } = state;
+
+      await authFetch.patch(`/news/${state.editNewId}`, {
+        headline,
+        description,
+        newLocation,
+        newType,
+        status,
+      });
+      dispatch({
+        type: EDIT_NEW_SUCCESS,
+      });
+      dispatch({ type: CLEAR_VALUES });
+    } catch (error) {
+      if (error.response.status === 401) return;
+      dispatch({
+        type: EDIT_NEW_ERROR,
+        payload: { msg: error.response.data.msg },
+      });
+    }
+    clearAlert();
   };
   const deleteNew = async (newId) => {
     dispatch({ type: DELETE_NEW_BEGIN });

@@ -25,6 +25,9 @@ import {
   GET_NEWS_SUCCESS,
   SET_EDIT_NEW,
   DELETE_NEW_BEGIN,
+  EDIT_NEW_BEGIN,
+  EDIT_NEW_SUCCESS,
+  EDIT_NEW_ERROR,
 } from './actions';
 
 const reducer = (state, action) => {
@@ -239,6 +242,27 @@ const reducer = (state, action) => {
   }
   if (action.type === DELETE_NEW_BEGIN) {
     return { ...state, isLoading: true };
+  }
+  if (action.type === EDIT_NEW_BEGIN) {
+    return { ...state, isLoading: true };
+  }
+  if (action.type === EDIT_NEW_SUCCESS) {
+    return {
+      ...state,
+      isLoading: false,
+      showAlert: true,
+      alertType: 'success',
+      alertText: 'Noticia actualizada!',
+    };
+  }
+  if (action.type === EDIT_NEW_ERROR) {
+    return {
+      ...state,
+      isLoading: false,
+      showAlert: true,
+      alertType: 'danger',
+      alertText: action.payload.msg,
+    };
   }
 
   throw new Error(`no such action : ${action.type}`);

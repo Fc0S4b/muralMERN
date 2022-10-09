@@ -33,3 +33,7 @@ export const GET_NEWS_SUCCESS = 'GET_JOBS_SUCCESS';
 export const SET_EDIT_NEW = 'SET_EDIT_NEW';
 
 export const DELETE_NEW_BEGIN = 'DELETE_NEW_BEGIN';
+
+export const EDIT_NEW_BEGIN = 'EDIT_NEW_BEGIN';
+export const EDIT_NEW_SUCCESS = 'EDIT_NEW_SUCCESS';
+export const EDIT_NEW_ERROR = 'EDIT_NEW_ERROR';
