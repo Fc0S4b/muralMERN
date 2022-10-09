@@ -310,7 +310,10 @@ cursor: pointer;
   border-top: 5px solid  var(--primary-500);
   box-shadow: var(--inset-shadow);
   animation: spinner 2s linear infinite;
+  margin-top: 20px;
 }
 .loading-center {
   margin: 0 auto;
+  margin-top: 20px;
+  
 }

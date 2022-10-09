@@ -24,6 +24,7 @@ import {
   GET_NEWS_BEGIN,
   GET_NEWS_SUCCESS,
   SET_EDIT_NEW,
+  DELETE_NEW_BEGIN,
 } from './actions';
 
 const reducer = (state, action) => {
@@ -235,6 +236,9 @@ const reducer = (state, action) => {
       newType,
       status,
     };
+  }
+  if (action.type === DELETE_NEW_BEGIN) {
+    return { ...state, isLoading: true };
   }
 
   throw new Error(`no such action : ${action.type}`);

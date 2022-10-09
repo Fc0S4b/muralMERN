@@ -27,6 +27,7 @@ import {
   GET_NEWS_BEGIN,
   GET_NEWS_SUCCESS,
   SET_EDIT_NEW,
+  DELETE_NEW_BEGIN,
 } from './actions';
 
 const token = localStorage.getItem('token');
@@ -285,8 +286,14 @@ const AppProvider = ({ children }) => {
   const editNew = () => {
     console.log('edit new');
   };
-  const deleteNew = (id) => {
-    console.log(`delete : ${id}`);
+  const deleteNew = async (newId) => {
+    dispatch({ type: DELETE_NEW_BEGIN });
+    try {
+      await authFetch.delete(`/news/${newId}`);
+      getNews();
+    } catch (error) {
+      logoutUser();
+    }
   };
 
   return (
