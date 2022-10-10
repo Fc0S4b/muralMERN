@@ -11,7 +11,7 @@ const start = async () => {
     await connectDB(process.env.MONGO_URL);
     await New.deleteMany();
     const jsonProducts = JSON.parse(
-      await readFile(new URL(''), import.meta.url)
+      await readFile(new URL('./mock-data.json', import.meta.url))
     );
     await New.create(jsonProducts);
     console.log('Hecho!');

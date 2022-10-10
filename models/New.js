@@ -36,6 +36,7 @@ const NewSchema = new mongoose.Schema(
       ref: 'User',
       required: [true, 'Por favor provea un usuario'],
     },
+    // newType later
   },
   { timestamps: true }
 );
