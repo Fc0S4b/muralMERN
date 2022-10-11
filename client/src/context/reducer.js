@@ -273,7 +273,8 @@ const reducer = (state, action) => {
     return {
       ...state,
       isLoading: false,
-      stats: action.payload.stats,
+      statsStatus: action.payload.statsStatus,
+      statsNewType: action.payload.statsNewType,
       monthlyNews: action.payload.monthlyNews,
     };
   }

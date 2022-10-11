@@ -70,7 +70,8 @@ export const initialState = {
   totalNews: 0,
   numOfPages: 1,
   page: 1,
-  stats: {},
+  statsStatus: {},
+  statsNewType: {},
   monthlyNews: [],
 };
 
@@ -332,7 +333,8 @@ const AppProvider = ({ children }) => {
       dispatch({
         type: SHOW_STATS_SUCCESS,
         payload: {
-          stats: data.defaultStats,
+          statsStatus: data.defaultStatus,
+          statsNewType: data.defaultNewType,
           monthlyNews: data.monthlyNews,
         },
       });
