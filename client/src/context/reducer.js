@@ -28,6 +28,8 @@ import {
   EDIT_NEW_BEGIN,
   EDIT_NEW_SUCCESS,
   EDIT_NEW_ERROR,
+  SHOW_STATS_BEGIN,
+  SHOW_STATS_SUCCESS,
 } from './actions';
 
 const reducer = (state, action) => {
@@ -262,6 +264,17 @@ const reducer = (state, action) => {
       showAlert: true,
       alertType: 'danger',
       alertText: action.payload.msg,
+    };
+  }
+  if (action.type === SHOW_STATS_BEGIN) {
+    return { ...state, isLoading: true, showAlert: false };
+  }
+  if (action.type === SHOW_STATS_SUCCESS) {
+    return {
+      ...state,
+      isLoading: false,
+      stats: action.payload.stats,
+      monthlyNews: action.payload.monthlyNews,
     };
   }
 

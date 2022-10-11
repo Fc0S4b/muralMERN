@@ -93,11 +93,14 @@ const showStats = async (req, res) => {
     lista: statsStatus.lista || 0,
   };
 
+  const defaultStats = {
+    defaultNewType,
+    defaultStatus,
+  };
+
   let monthlyNews = [];
 
-  res
-    .status(StatusCodes.OK)
-    .json({ defaultNewType, defaultStatus, monthlyNews });
+  res.status(StatusCodes.OK).json({ defaultStats, monthlyNews });
 };
 
 export { createNew, deleteNew, getAllNews, updateNew, showStats };
