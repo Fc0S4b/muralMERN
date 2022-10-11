@@ -3,6 +3,7 @@ import { StatusCodes } from 'http-status-codes';
 import { BadRequestError, NotFoundError } from '../errors/index.js';
 
 import checkPermissions from '../utils/checkPermissions.js';
+import mongoose from 'mongoose';
 
 const createNew = async (req, res) => {
   const { headline, description } = req.body;
@@ -52,7 +53,51 @@ const updateNew = async (req, res) => {
 };
 
 const showStats = async (req, res) => {
-  return res.send('show stats');
+  let statsNewType = await New.aggregate([
+    { $match: { createdBy: mongoose.Types.ObjectId(req.user.userId) } },
+    {
+      $group: { _id: '$newType', count: { $sum: 1 } },
+    },
+  ]);
+  let statsStatus = await New.aggregate([
+    { $match: { createdBy: mongoose.Types.ObjectId(req.user.userId) } },
+    {
+      $group: { _id: '$status', count: { $sum: 1 } },
+    },
+  ]);
+
+  statsNewType = statsNewType.reduce((acc, curr) => {
+    const { _id: title, count } = curr;
+    acc[title] = count;
+    return acc;
+  }, {});
+  statsStatus = statsStatus.reduce((acc, curr) => {
+    const { _id: title, count } = curr;
+    acc[title] = count;
+    return acc;
+  }, {});
+
+  const defaultNewType = {
+    otro: statsNewType.otro || 0,
+    noticia: statsNewType.noticia || 0,
+    informacion: statsNewType.informacion || 0,
+    saludo: statsNewType.saludo || 0,
+    articulo: statsNewType.articulo || 0,
+    reseña: statsNewType.reseña || 0,
+  };
+
+  const defaultStatus = {
+    pendiente: statsStatus.pendiente || 0,
+    compartida: statsStatus.compartida || 0,
+    caducada: statsStatus.caducada || 0,
+    lista: statsStatus.lista || 0,
+  };
+
+  let monthlyNews = [];
+
+  res
+    .status(StatusCodes.OK)
+    .json({ defaultNewType, defaultStatus, monthlyNews });
 };
 
 export { createNew, deleteNew, getAllNews, updateNew, showStats };
