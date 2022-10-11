@@ -12,6 +12,10 @@ import NewInfo from './NewInfo';
 import NewPost from './NewPost';
 import NewsContainer from './NewsContainer';
 import SearchContainer from './SearchContainer';
+import StatsContainer from './StatsContainer';
+import ChartsContainer from './ChartsContainer';
+import StatsItem from './StatsItem';
+import Loading from './Loading';
 
 export {
   Logo,
@@ -28,4 +32,8 @@ export {
   NewPost,
   NewsContainer,
   SearchContainer,
+  StatsContainer,
+  ChartsContainer,
+  StatsItem,
+  Loading,
 };
