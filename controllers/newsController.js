@@ -67,25 +67,25 @@ const showStats = async (req, res) => {
     },
   ]);
 
-  statsNewType = statsNewType.reduce((acc, curr) => {
-    const { _id: title, count } = curr;
-    acc[title] = count;
-    return acc;
-  }, {});
+  // statsNewType = statsNewType.reduce((acc, curr) => {
+  //   const { _id: title, count } = curr;
+  //   acc[title] = count;
+  //   return acc;
+  // }, {});
   statsStatus = statsStatus.reduce((acc, curr) => {
     const { _id: title, count } = curr;
     acc[title] = count;
     return acc;
   }, {});
 
-  const defaultNewType = {
-    otro: statsNewType.otro || 0,
-    noticia: statsNewType.noticia || 0,
-    informacion: statsNewType.informacion || 0,
-    saludo: statsNewType.saludo || 0,
-    articulo: statsNewType.articulo || 0,
-    reseña: statsNewType.reseña || 0,
-  };
+  // const defaultNewType = {
+  //   otro: statsNewType.otro || 0,
+  //   noticia: statsNewType.noticia || 0,
+  //   informacion: statsNewType.informacion || 0,
+  //   saludo: statsNewType.saludo || 0,
+  //   articulo: statsNewType.articulo || 0,
+  //   reseña: statsNewType.reseña || 0,
+  // };
 
   const defaultStatus = {
     pendiente: statsStatus.pendiente || 0,
@@ -128,10 +128,11 @@ const showStats = async (req, res) => {
       return { date, count };
     })
     .reverse();
-
-  res
-    .status(StatusCodes.OK)
-    .json({ defaultStatus, defaultNewType, monthlyNews });
+  statsNewType = statsNewType.map((item) => {
+    const { _id: newType, count } = item;
+    return { newType, count };
+  });
+  res.status(StatusCodes.OK).json({ defaultStatus, statsNewType, monthlyNews });
 };
 
 export { createNew, deleteNew, getAllNews, updateNew, showStats };

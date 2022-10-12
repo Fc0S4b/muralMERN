@@ -334,7 +334,7 @@ const AppProvider = ({ children }) => {
         type: SHOW_STATS_SUCCESS,
         payload: {
           statsStatus: data.defaultStatus,
-          statsNewType: data.defaultNewType,
+          statsNewType: data.statsNewType,
           monthlyNews: data.monthlyNews,
         },
       });
