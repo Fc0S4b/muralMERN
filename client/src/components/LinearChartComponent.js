@@ -13,7 +13,10 @@ const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
     return (
       <div className="custom-tooltip">
-        <p className="label">{`${label} : ${payload[0].value}`}</p>
+        <p
+          className="label"
+          style={{ textTransform: 'capitalize' }}
+        >{`${label} : ${payload[0].value}`}</p>
         {/* <p className="intro">{getIntroOfPage(label)}</p> */}
 
         <p className="desc">
@@ -37,14 +40,14 @@ const LinearChartComponent = ({ data }) => {
         }}
       >
         <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="date" />
-        <YAxis allowDecimals={false} />
+        <XAxis dataKey="date" style={{ textTransform: 'capitalize' }} />
+        <YAxis allowDecimals={false} domain={[0, 'dataMax']} />
         <Tooltip content={<CustomTooltip />} />
         <Legend />
         <Line
           type="monotone"
           dataKey="count"
-          stroke="#8884d8"
+          stroke="#6c0f16"
           activeDot={{ r: 8 }}
         />
       </LineChart>

@@ -12,14 +12,16 @@ const SimpleRadarChart = ({ newsType }) => {
     <ResponsiveContainer width="100%" height={300}>
       <RadarChart margin={{ top: 50 }} data={newsType}>
         <PolarGrid />
-        <PolarAngleAxis dataKey="newType" />
+        <PolarAngleAxis
+          dataKey="newType"
+          style={{ textTransform: 'capitalize' }}
+        />
         <PolarRadiusAxis />
         <Radar
-          name="Mike"
           dataKey="count"
-          stroke="#8884d8"
-          fill="#8884d8"
-          fillOpacity={0.6}
+          stroke="#918450"
+          fill="#918450"
+          fillOpacity={0.3}
         />
       </RadarChart>
     </ResponsiveContainer>

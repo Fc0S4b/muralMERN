@@ -36,7 +36,10 @@ const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
     return (
       <div className="custom-tooltip">
-        <p className="label">{`${label} : ${payload[0].value}`}</p>
+        <p
+          className="label"
+          style={{ textTransform: 'capitalize' }}
+        >{`${label} : ${payload[0].value}`}</p>
         {/* <p className="intro">{getIntroOfPage(label)}</p> */}
 
         <p className="desc">
@@ -61,10 +64,10 @@ const BarChartComponent = ({ data }) => {
       >
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="date" style={{ textTransform: 'capitalize' }} />
-        <YAxis allowDecimals={false} />
+        <YAxis allowDecimals={false} domain={[0, 'dataMax']} />
         <Tooltip content={<CustomTooltip />} />
         <Legend />
-        <Bar dataKey="count" barSize={55} fill="#8884d8" />
+        <Bar dataKey="count" barSize={55} fill="#ffb561" />
       </BarChart>
     </ResponsiveContainer>
   );
