@@ -28,10 +28,39 @@ const deleteNew = async (req, res) => {
 };
 
 const getAllNews = async (req, res) => {
-  const news = await New.find({ createdBy: req.user.userId });
+  const { search, status, newType, sort } = req.query;
+  const queryObject = {
+    createdBy: req.user.userId,
+  };
+  if (status !== 'todo') {
+    queryObject.status = status;
+  }
+  if (newType !== 'todo') {
+    queryObject.newType = newType;
+  }
+  if (search) {
+    queryObject.position = { $regex: search, $options: 'i' };
+  }
+  if (sort === 'nuevas') {
+    result = result.sort('-createdAt');
+  }
+  if (sort === 'antiguas') {
+    result = result.sort('createdAt');
+  }
+  if (sort === 'a-z') {
+    result = result.sort('position');
+  }
+  if (sort === 'z-a') {
+    result = result.sort('-position');
+  }
+
+  let result = New.find(queryObject);
+
+  const newsPost = await result;
+
   res
     .status(StatusCodes.OK)
-    .json({ news, totalNews: news.length, numOfPages: 1 });
+    .json({ newsPost, totalNews: newsPost.length, numOfPages: 1 });
 };
 const updateNew = async (req, res) => {
   const { id: newId } = req.params;
