@@ -122,6 +122,7 @@ const showStats = async (req, res) => {
         count,
       } = item;
       const date = moment()
+        .locale('es')
         .month(month - 1)
         .year(year)
         .format('MMM Y');

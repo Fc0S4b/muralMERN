@@ -9,6 +9,24 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 
+const CustomTooltip = ({ active, payload, label }) => {
+  if (active && payload && payload.length) {
+    return (
+      <div className="custom-tooltip">
+        <p className="label">{`${label} : ${payload[0].value}`}</p>
+        {/* <p className="intro">{getIntroOfPage(label)}</p> */}
+
+        <p className="desc">
+          Post{payload[0].value > 1 ? 's' : ''} realizado
+          {payload[0].value > 1 ? 's' : ''}
+        </p>
+      </div>
+    );
+  }
+
+  return null;
+};
+
 const LinearChartComponent = ({ data }) => {
   return (
     <ResponsiveContainer width="100%" height={300}>
@@ -20,8 +38,8 @@ const LinearChartComponent = ({ data }) => {
       >
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="date" />
-        <YAxis />
-        <Tooltip />
+        <YAxis allowDecimals={false} />
+        <Tooltip content={<CustomTooltip />} />
         <Legend />
         <Line
           type="monotone"
