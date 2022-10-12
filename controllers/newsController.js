@@ -29,9 +29,11 @@ const deleteNew = async (req, res) => {
 
 const getAllNews = async (req, res) => {
   const { search, status, newType, sort } = req.query;
+
   const queryObject = {
     createdBy: req.user.userId,
   };
+
   if (status !== 'todo') {
     queryObject.status = status;
   }
@@ -41,6 +43,11 @@ const getAllNews = async (req, res) => {
   if (search) {
     queryObject.position = { $regex: search, $options: 'i' };
   }
+  console.log(queryObject);
+  // NO AWAIT
+  let result = New.find(queryObject);
+
+  // chain sort conditions
   if (sort === 'nuevas') {
     result = result.sort('-createdAt');
   }
@@ -53,14 +60,11 @@ const getAllNews = async (req, res) => {
   if (sort === 'z-a') {
     result = result.sort('-position');
   }
-
-  let result = New.find(queryObject);
-
-  const newsPost = await result;
-
+  const news = await result;
+  console.log(news);
   res
     .status(StatusCodes.OK)
-    .json({ newsPost, totalNews: newsPost.length, numOfPages: 1 });
+    .json({ news, totalNews: news.length, numOfPages: 1 });
 };
 const updateNew = async (req, res) => {
   const { id: newId } = req.params;
