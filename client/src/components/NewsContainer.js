@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import Loading from './Loading';
 import NewPost from './NewPost';
 import Wrapper from '../assets/wrappers/NewsContainer';
+import PageBtnContainer from './PageBtnContainer';
 
 const NewsContainer = () => {
   const {
@@ -15,10 +16,11 @@ const NewsContainer = () => {
     searchStatus,
     searchType,
     sort,
+    numOfPages,
   } = useAppContext();
   useEffect(() => {
     getNews();
-  }, [search, searchStatus, searchType, sort]);
+  }, [page, search, searchStatus, searchType, sort]);
   if (isLoading) {
     return <Loading center />;
   }
@@ -40,6 +42,7 @@ const NewsContainer = () => {
           return <NewPost key={singleNew._id} {...singleNew} />;
         })}
       </div>
+      {numOfPages > 1 && <PageBtnContainer />}
     </Wrapper>
   );
 };
