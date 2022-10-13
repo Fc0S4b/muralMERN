@@ -62,7 +62,7 @@ const SearchContainer = () => {
             labelText="Ordenar por"
           ></FormRowSelect>
           <button
-            className="btn btn-block btn-dange"
+            className="btn btn-block btn-danger"
             disabled={isLoading}
             onClick={handleSubmit}
           >
