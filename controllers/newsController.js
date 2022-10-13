@@ -61,11 +61,19 @@ const getAllNews = async (req, res) => {
   if (sort === 'z-a') {
     result = result.sort('-headline');
   }
+
+  const page = Number(req.query.page) || 1;
+  const limit = Number(req.query.limit) || 10;
+  const skip = (page - 1) * limit;
+
+  result = result.skip(skip).limit(limit);
+
   const news = await result;
 
-  res
-    .status(StatusCodes.OK)
-    .json({ news, totalNews: news.length, numOfPages: 1 });
+  const totalNews = await New.countDocuments(queryObject);
+  const numOfPages = Math.ceil(totalNews / limit);
+
+  res.status(StatusCodes.OK).json({ news, totalNews, numOfPages });
 };
 const updateNew = async (req, res) => {
   const { id: newId } = req.params;
