@@ -30,6 +30,7 @@ import {
   EDIT_NEW_ERROR,
   SHOW_STATS_BEGIN,
   SHOW_STATS_SUCCESS,
+  CLEAR_FILTERS,
 } from './actions';
 
 const reducer = (state, action) => {
@@ -276,6 +277,15 @@ const reducer = (state, action) => {
       statsStatus: action.payload.statsStatus,
       statsNewType: action.payload.statsNewType,
       monthlyNews: action.payload.monthlyNews,
+    };
+  }
+  if (action.type === CLEAR_FILTERS) {
+    return {
+      ...state,
+      search: '',
+      searchStatus: 'todo',
+      searchType: 'todo',
+      sort: 'últimas',
     };
   }
 

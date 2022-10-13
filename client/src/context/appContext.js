@@ -33,6 +33,7 @@ import {
   EDIT_NEW_ERROR,
   SHOW_STATS_BEGIN,
   SHOW_STATS_SUCCESS,
+  CLEAR_FILTERS,
 } from './actions';
 
 const token = localStorage.getItem('token');
@@ -65,7 +66,12 @@ export const initialState = {
   newType: 'información',
   statusOptions: ['pendiente', 'lista', 'compartida', 'caducada'],
   status: 'pendiente',
-  newText: '',
+  search: '',
+  searchStatus: 'todo',
+  searchType: 'todo',
+  sort: 'últimas',
+  sortOptions: ['últimas', 'antiguas', 'a-z', 'z-a'],
+  newText: '', //textarea
   news: [],
   totalNews: 0,
   numOfPages: 1,
@@ -345,6 +351,10 @@ const AppProvider = ({ children }) => {
     clearAlert();
   };
 
+  const clearFilters = () => {
+    dispatch({ type: CLEAR_FILTERS });
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -365,6 +375,7 @@ const AppProvider = ({ children }) => {
         deleteNew,
         editNew,
         showStats,
+        clearFilters,
       }}
     >
       {children}
