@@ -69,8 +69,8 @@ export const initialState = {
   search: '',
   searchStatus: 'todo',
   searchType: 'todo',
-  sort: 'últimas',
-  sortOptions: ['últimas', 'antiguas', 'a-z', 'z-a'],
+  sort: 'nuevas',
+  sortOptions: ['nuevas', 'antiguas', 'a-z', 'z-a'],
   newText: '', //textarea
   news: [],
   totalNews: 0,
@@ -269,7 +269,12 @@ const AppProvider = ({ children }) => {
   };
 
   const getNews = async () => {
-    let url = `/news`;
+    const { search, searchStatus, searchType, sort } = state;
+
+    let url = `/news?status=${searchStatus}&newType=${searchType}&sort=${sort}`;
+    if (search) {
+      url = url + `&search=${search}`;
+    }
     dispatch({ type: GET_NEWS_BEGIN });
     try {
       const { data } = await authFetch(url);

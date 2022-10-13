@@ -40,10 +40,11 @@ const getAllNews = async (req, res) => {
   if (newType !== 'todo') {
     queryObject.newType = newType;
   }
+
   if (search) {
-    queryObject.position = { $regex: search, $options: 'i' };
+    queryObject.headline = { $regex: search, $options: 'i' };
   }
-  console.log(queryObject);
+
   // NO AWAIT
   let result = New.find(queryObject);
 
@@ -55,13 +56,13 @@ const getAllNews = async (req, res) => {
     result = result.sort('createdAt');
   }
   if (sort === 'a-z') {
-    result = result.sort('position');
+    result = result.sort('headline');
   }
   if (sort === 'z-a') {
-    result = result.sort('-position');
+    result = result.sort('-headline');
   }
   const news = await result;
-  console.log(news);
+
   res
     .status(StatusCodes.OK)
     .json({ news, totalNews: news.length, numOfPages: 1 });

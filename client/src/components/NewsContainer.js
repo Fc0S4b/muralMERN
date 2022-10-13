@@ -5,10 +5,20 @@ import NewPost from './NewPost';
 import Wrapper from '../assets/wrappers/NewsContainer';
 
 const NewsContainer = () => {
-  const { getNews, news, isLoading, page, totalNews } = useAppContext();
+  const {
+    getNews,
+    news,
+    isLoading,
+    page,
+    totalNews,
+    search,
+    searchStatus,
+    searchType,
+    sort,
+  } = useAppContext();
   useEffect(() => {
     getNews();
-  }, []);
+  }, [search, searchStatus, searchType, sort]);
   if (isLoading) {
     return <Loading center />;
   }
