@@ -20,6 +20,7 @@ const NewsContainer = () => {
   } = useAppContext();
   useEffect(() => {
     getNews();
+    // eslint-disable-next-line
   }, [page, search, searchStatus, searchType, sort]);
   if (isLoading) {
     return <Loading center />;
