@@ -3,6 +3,7 @@ import Wrapper from '../assets/wrappers/NewPost';
 import { GrLocation } from 'react-icons/gr';
 import { BsFillCalendarWeekFill } from 'react-icons/bs';
 import { BiNews } from 'react-icons/bi';
+import { AiFillStar } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { useAppContext } from '../context/appContext';
 import NewInfo from './NewInfo';
@@ -15,6 +16,7 @@ const NewPost = ({
   newType,
   createdAt,
   status,
+  favorite,
 }) => {
   const { setEditNew, deleteNew } = useAppContext();
   let date = moment(createdAt);
@@ -27,6 +29,9 @@ const NewPost = ({
           <h4>{headline}</h4>
           <p>{description}</p>
         </div>
+        <Link className={favorite ? 'start-icon active' : 'start-icon'}>
+          <AiFillStar />
+        </Link>
       </header>
       <div className="content">
         <div className="content-center">

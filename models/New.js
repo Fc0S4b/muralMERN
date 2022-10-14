@@ -16,6 +16,11 @@ const NewSchema = new mongoose.Schema(
       required: [true, 'Por favor provea una descripción'],
       maxlength: 100,
     },
+    newText: {
+      type: String,
+      required: [true, 'Por favor escriba el contenido de la publicación'],
+      maxlength: 140,
+    },
     status: {
       type: String,
       enum: ['pendiente', 'lista', 'compartida', 'caducada'],
@@ -36,7 +41,10 @@ const NewSchema = new mongoose.Schema(
       ref: 'User',
       required: [true, 'Por favor provea un usuario'],
     },
-    // newType later
+    favorite: {
+      type: Boolean,
+      default: false,
+    },
   },
   { timestamps: true }
 );

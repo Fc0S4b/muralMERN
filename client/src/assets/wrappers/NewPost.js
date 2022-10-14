@@ -11,8 +11,20 @@ const Wrapper = styled.article`
     padding: 1rem 1.5rem;
     border-bottom: 1px solid var(--grey-200);
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto 1fr auto;
     align-items: center;
+    .start-icon {
+      margin-right: 15px;
+      font-size: 30px;
+      opacity: 0.5;
+      color: #ffa033;
+    }
+    .start-icon:hover {
+      opacity: 1;
+    }
+    .active {
+      opacity: 1;
+    }
     h4 {
       letter-spacing: 0;
       font-size: 20px;
