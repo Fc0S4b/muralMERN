@@ -13,6 +13,8 @@ const SearchContainer = () => {
     newTypeOptions,
     handleChange,
     clearFilters,
+    searchFavorite,
+    searchFavoriteOptions,
   } = useAppContext();
 
   const handleSearch = (e) => {
@@ -60,6 +62,14 @@ const SearchContainer = () => {
             handleChange={handleSearch}
             list={sortOptions}
             labelText="Ordenar por"
+          ></FormRowSelect>
+          {/* favorite */}
+          <FormRowSelect
+            name="searchFavorite"
+            value={searchFavorite}
+            handleChange={handleSearch}
+            labelText="Destacadas"
+            list={['todo', ...searchFavoriteOptions]}
           ></FormRowSelect>
           <button
             className="btn btn-block btn-danger"

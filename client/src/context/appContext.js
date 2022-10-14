@@ -80,6 +80,9 @@ export const initialState = {
   statsStatus: {},
   statsNewType: {},
   monthlyNews: [],
+  favorite: false,
+  searchFavorite: 'todo',
+  searchFavoriteOptions: ['favoritas', 'no favoritas'],
 };
 
 const AppContext = React.createContext();
@@ -270,12 +273,14 @@ const AppProvider = ({ children }) => {
   };
 
   const getNews = async () => {
-    const { page, search, searchStatus, searchType, sort } = state;
+    const { page, search, searchStatus, searchType, sort, searchFavorite } =
+      state;
 
-    let url = `/news?page=${page}&status=${searchStatus}&newType=${searchType}&sort=${sort}`;
+    let url = `/news?page=${page}&status=${searchStatus}&newType=${searchType}&sort=${sort}&favorite=${searchFavorite}`;
     if (search) {
       url = url + `&search=${search}`;
     }
+
     dispatch({ type: GET_NEWS_BEGIN });
     try {
       const { data } = await authFetch(url);

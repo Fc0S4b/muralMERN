@@ -286,7 +286,8 @@ const reducer = (state, action) => {
       search: '',
       searchStatus: 'todo',
       searchType: 'todo',
-      sort: 'últimas',
+      sort: 'nuevas',
+      searchFavorite: 'todo',
     };
   }
   if (action.type === CHANGE_PAGE) {

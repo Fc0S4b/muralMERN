@@ -28,7 +28,7 @@ const deleteNew = async (req, res) => {
 };
 
 const getAllNews = async (req, res) => {
-  const { search, status, newType, sort } = req.query;
+  const { search, status, newType, sort, favorite } = req.query;
 
   const queryObject = {
     createdBy: req.user.userId,
@@ -39,6 +39,14 @@ const getAllNews = async (req, res) => {
   }
   if (newType !== 'todo') {
     queryObject.newType = newType;
+  }
+  if (favorite !== 'todo') {
+    if (favorite === 'favoritas') {
+      queryObject.favorite = true;
+    }
+    if (favorite === 'no favoritas') {
+      queryObject.favorite = false;
+    }
   }
 
   if (search) {
