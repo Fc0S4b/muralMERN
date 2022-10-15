@@ -102,6 +102,25 @@ const updateNew = async (req, res) => {
   });
   res.status(StatusCodes.OK).json({ updateNew });
 };
+const updateFavorite = async (req, res) => {
+  const { id: newId } = req.params;
+  const { favorite } = req.body;
+  const newPost = await New.findOne({ _id: newId });
+  console.log(newPost);
+  if (!newPost) {
+    throw new NotFoundError(`No hay noticia con id ${newId}`);
+  }
+  checkPermissions(req.user, newPost.createdBy);
+  const updateNewFavorite = await New.findOneAndUpdate(
+    { _id: newId },
+    req.body,
+    {
+      new: true,
+      runValidators: true,
+    }
+  );
+  res.status(StatusCodes.OK).json({ updateNewFavorite });
+};
 
 const showStats = async (req, res) => {
   let statsNewType = await New.aggregate([
@@ -186,4 +205,11 @@ const showStats = async (req, res) => {
   res.status(StatusCodes.OK).json({ defaultStatus, statsNewType, monthlyNews });
 };
 
-export { createNew, deleteNew, getAllNews, updateNew, showStats };
+export {
+  createNew,
+  deleteNew,
+  getAllNews,
+  updateNew,
+  showStats,
+  updateFavorite,
+};
