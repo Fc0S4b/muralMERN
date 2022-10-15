@@ -35,6 +35,7 @@ import {
   SHOW_STATS_SUCCESS,
   CLEAR_FILTERS,
   CHANGE_PAGE,
+  CHANGE_FAVORITE,
 } from './actions';
 
 const token = localStorage.getItem('token');
@@ -342,6 +343,19 @@ const AppProvider = ({ children }) => {
       logoutUser();
     }
   };
+  const setFavorite = async (id) => {
+    let { favorite } = state.news.find((singleNew) => singleNew._id === id);
+    favorite = !favorite;
+
+    try {
+      await authFetch.patch(`/news/favorite/${id}`, {
+        favorite,
+      });
+      dispatch({ type: CHANGE_FAVORITE, payload: { favorite } });
+    } catch (error) {
+      if (error.response.status === 401) return;
+    }
+  };
 
   const showStats = async () => {
     dispatch({ type: SHOW_STATS_BEGIN });
@@ -392,6 +406,7 @@ const AppProvider = ({ children }) => {
         showStats,
         clearFilters,
         changePage,
+        setFavorite,
       }}
     >
       {children}

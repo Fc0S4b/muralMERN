@@ -18,7 +18,7 @@ const NewPost = ({
   status,
   favorite,
 }) => {
-  const { setEditNew, deleteNew } = useAppContext();
+  const { setEditNew, deleteNew, setFavorite } = useAppContext();
   let date = moment(createdAt);
   date = date.format('MMM Do, YYYY');
   return (
@@ -29,7 +29,10 @@ const NewPost = ({
           <h4>{headline}</h4>
           <p>{description}</p>
         </div>
-        <Link className={favorite ? 'start-icon active' : 'start-icon'}>
+        <Link
+          className={favorite ? 'start-icon active' : 'start-icon'}
+          onClick={() => setFavorite(_id)}
+        >
           <AiFillStar />
         </Link>
       </header>

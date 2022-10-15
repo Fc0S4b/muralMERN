@@ -18,11 +18,12 @@ const NewsContainer = () => {
     sort,
     numOfPages,
     searchFavorite,
+    favorite,
   } = useAppContext();
   useEffect(() => {
     getNews();
     // eslint-disable-next-line
-  }, [page, search, searchStatus, searchType, sort, searchFavorite]);
+  }, [page, search, searchStatus, searchType, sort, searchFavorite, favorite]);
   if (isLoading) {
     return <Loading center />;
   }

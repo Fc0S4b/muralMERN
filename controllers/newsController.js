@@ -106,7 +106,7 @@ const updateFavorite = async (req, res) => {
   const { id: newId } = req.params;
   const { favorite } = req.body;
   const newPost = await New.findOne({ _id: newId });
-  console.log(newPost);
+
   if (!newPost) {
     throw new NotFoundError(`No hay noticia con id ${newId}`);
   }
