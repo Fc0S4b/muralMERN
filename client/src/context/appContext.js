@@ -344,10 +344,20 @@ const AppProvider = ({ children }) => {
     }
   };
   const setFavorite = async (id) => {
-    let { favorite } = state.news.find((singleNew) => singleNew._id === id);
-    favorite = !favorite;
+    // crear función para url ya que se repite dos veces
+    const { page, search, searchStatus, searchType, sort, searchFavorite } =
+      state;
 
+    let url = `/news?page=${page}&status=${searchStatus}&newType=${searchType}&sort=${sort}&favorite=${searchFavorite}`;
+    if (search) {
+      url = url + `&search=${search}`;
+    }
     try {
+      const { data } = await authFetch(url);
+      const { news } = data;
+      let { favorite } = news.find((singleNew) => singleNew._id === id);
+      favorite = !favorite;
+
       await authFetch.patch(`/news/favorite/${id}`, {
         favorite,
       });

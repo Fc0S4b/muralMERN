@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import { useAppContext } from '../context/appContext';
 import NewInfo from './NewInfo';
 import ShareLinks from './ShareLinks';
+import { useEffect, useState } from 'react';
 const NewPost = ({
   _id,
   headline,
@@ -21,6 +22,14 @@ const NewPost = ({
   const { setEditNew, deleteNew, setFavorite } = useAppContext();
   let date = moment(createdAt);
   date = date.format('MMM Do, YYYY');
+
+  const [toggleStart, setToggleStart] = useState(favorite);
+
+  const handleStart = (_id) => {
+    setToggleStart(!toggleStart);
+    setFavorite(_id);
+  };
+
   return (
     <Wrapper>
       <header>
@@ -30,8 +39,8 @@ const NewPost = ({
           <p>{description}</p>
         </div>
         <Link
-          className={favorite ? 'start-icon active' : 'start-icon'}
-          onClick={() => setFavorite(_id)}
+          className={toggleStart ? 'start-icon active' : 'start-icon'}
+          onClick={() => handleStart(_id)}
         >
           <AiFillStar />
         </Link>

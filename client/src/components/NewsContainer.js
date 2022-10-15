@@ -23,7 +23,7 @@ const NewsContainer = () => {
   useEffect(() => {
     getNews();
     // eslint-disable-next-line
-  }, [page, search, searchStatus, searchType, sort, searchFavorite, favorite]);
+  }, [page, search, searchStatus, searchType, sort, searchFavorite]);
   if (isLoading) {
     return <Loading center />;
   }
