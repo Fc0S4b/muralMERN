@@ -36,6 +36,8 @@ import {
   CLEAR_FILTERS,
   CHANGE_PAGE,
   CHANGE_FAVORITE,
+  CHANGE_TO_DARKMODE,
+  CHANGE_TO_LIGHTMODE,
 } from './actions';
 
 const token = localStorage.getItem('token');
@@ -84,6 +86,7 @@ export const initialState = {
   favorite: false,
   searchFavorite: 'todo',
   searchFavoriteOptions: ['favoritas', 'no favoritas'],
+  theme: 'dark-theme',
 };
 
 const AppContext = React.createContext();
@@ -394,6 +397,18 @@ const AppProvider = ({ children }) => {
     dispatch({ type: CHANGE_PAGE, payload: { page } });
   };
 
+  const toggleTheme = () => {
+    let { theme } = state;
+    if (localStorage.getItem('theme')) {
+      theme = localStorage.getItem('theme');
+    }
+    if (theme === 'light-theme') {
+      dispatch({ type: CHANGE_TO_DARKMODE });
+    } else {
+      dispatch({ type: CHANGE_TO_LIGHTMODE });
+    }
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -417,6 +432,7 @@ const AppProvider = ({ children }) => {
         clearFilters,
         changePage,
         setFavorite,
+        toggleTheme,
       }}
     >
       {children}

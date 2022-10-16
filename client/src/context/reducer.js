@@ -33,6 +33,8 @@ import {
   CLEAR_FILTERS,
   CHANGE_PAGE,
   CHANGE_FAVORITE,
+  CHANGE_TO_DARKMODE,
+  CHANGE_TO_LIGHTMODE,
 } from './actions';
 
 const reducer = (state, action) => {
@@ -301,6 +303,18 @@ const reducer = (state, action) => {
     return {
       ...state,
       favorite: action.payload.favorite,
+    };
+  }
+  if (action.type === CHANGE_TO_DARKMODE) {
+    return {
+      ...state,
+      theme: 'dark-theme',
+    };
+  }
+  if (action.type === CHANGE_TO_LIGHTMODE) {
+    return {
+      ...state,
+      theme: 'light-theme',
     };
   }
 

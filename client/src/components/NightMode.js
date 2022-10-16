@@ -1,8 +1,19 @@
-import { FaMoon } from 'react-icons/fa';
+import { FaMoon, FaSun } from 'react-icons/fa';
+import { useAppContext } from '../context/appContext';
+import { useEffect } from 'react';
 const NightMode = () => {
+  const { toggleTheme, theme } = useAppContext();
+  useEffect(() => {
+    document.documentElement.className = theme;
+    localStorage.setItem('theme', theme);
+  }, [theme]);
   return (
     <div>
-      <FaMoon className="nightmode" />
+      {theme === 'light-theme' ? (
+        <FaMoon className="nightmode" onClick={toggleTheme} />
+      ) : (
+        <FaSun className="nightmode" onClick={toggleTheme} />
+      )}
     </div>
   );
 };
