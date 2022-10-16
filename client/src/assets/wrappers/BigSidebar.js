@@ -8,20 +8,20 @@ const Wrapper = styled.aside`
     display: block;
     .sidebar-container {
       min-height: 100vh;
-      height: 100%;
       width: 150px;
       margin-left: -150px;
       transition: var(--transition);
-    }
-    .content {
       position: sticky;
       top: 0;
       display: flex;
       flex-direction: column;
+      align-items: center;
       justify-content: space-between;
+    }
+    .content {
+      height: 100%;
       align-items: center;
       padding: 30px 0;
-      height: 550px;
     }
     .show-sidebar {
       margin-left: 0;
@@ -51,20 +51,19 @@ const Wrapper = styled.aside`
       font-size: 21px;
     }
     .btn-container {
-      position: sticky;
-      top: 90%;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      gap: 10px;
       padding: 5px;
       font-size: 20px;
-      margin-top: 3px;
     }
     .btn-container > button {
       background: transparent;
       border: transparent;
       cursor: pointer;
+      margin-top: 10px;
     }
     .btn-container:hover {
       color: var(--primary-900);

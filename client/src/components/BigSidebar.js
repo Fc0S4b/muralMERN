@@ -16,13 +16,13 @@ const BigSidebar = () => {
           <header>
             <NightMode />
           </header>
+        </div>
+        <div className="btn-container">
           <NavLinks
             links={sidebarLinks}
             toggleSidebar={toggleSidebar}
             name={user.name}
           />
-        </div>
-        <div className="btn-container">
           <button onClick={logoutUser}>
             <span>
               <AiOutlinePoweroff />
