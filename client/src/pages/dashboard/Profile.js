@@ -3,6 +3,7 @@ import { FormRow, Alert } from '../../components';
 import { useAppContext } from '../../context/appContext';
 
 import Wrapper from '../../assets/wrappers/DashboardFormPage';
+import useTitle from '../../utils/useTitle';
 
 const Profile = () => {
   const { user, showAlert, displayAlert, updateUser, isLoading } =
@@ -11,6 +12,8 @@ const Profile = () => {
   const [email, setEmail] = useState(user?.email);
   const [lastName, setLastName] = useState(user?.lastName);
   const [location, setLocation] = useState(user?.location);
+
+  useTitle('Perfil');
 
   const handleSubmit = (e) => {
     e.preventDefault();

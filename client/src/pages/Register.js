@@ -49,7 +49,6 @@ const Register = () => {
         alertText: 'Usuario creado! redirigiendo',
       });
     }
-    console.log(values);
   };
 
   const handleChange = (e) => {

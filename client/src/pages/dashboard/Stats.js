@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useAppContext } from '../../context/appContext';
 import { StatsContainer, Loading, ChartsContainer } from '../../components';
+import useTitle from '../../utils/useTitle';
 
 const Stats = () => {
   const { showStats, isLoading, monthlyNews } = useAppContext();
@@ -8,6 +9,8 @@ const Stats = () => {
     showStats();
     // eslint-disable-next-line
   }, []);
+
+  useTitle('Estadísticas');
 
   if (isLoading) {
     return <Loading center />;

@@ -1,6 +1,7 @@
 import { FormRow, Alert, FormRowSelect } from '../../components';
 import { useAppContext } from '../../context/appContext';
 import Wrapper from '../../assets/wrappers/DashboardFormPage';
+import useTitle from '../../utils/useTitle';
 
 const AddNew = () => {
   const {
@@ -21,6 +22,7 @@ const AddNew = () => {
     createNew,
     editNew,
   } = useAppContext();
+  useTitle('Editar noticia');
 
   const handleSubmit = (e) => {
     e.preventDefault();
