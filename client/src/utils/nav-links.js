@@ -1,7 +1,7 @@
 import { MdQueryStats } from 'react-icons/md';
 import { BiNews } from 'react-icons/bi';
 import { IoAddCircleOutline } from 'react-icons/io5';
-import { AiOutlineStar } from 'react-icons/ai';
+import { MdFactCheck } from 'react-icons/md';
 const links = [
   {
     id: 1,
@@ -23,9 +23,9 @@ const links = [
   },
   {
     id: 4,
-    text: 'Favoritos',
-    path: 'favorite',
-    icon: <AiOutlineStar />,
+    text: 'Publicación',
+    path: 'single-post',
+    icon: <MdFactCheck />,
   },
 ];
 

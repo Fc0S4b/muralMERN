@@ -23,6 +23,9 @@ const Wrapper = styled.article`
     font-size: 20px;
     color: var(--grey-500);
   }
+  span.icon {
+    background: transparent;
+  }
   .icon {
     width: 70px;
     height: 60px;

@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import { useAppContext } from '../context/appContext';
 import NewInfo from './NewInfo';
 import ShareLinks from './ShareLinks';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 const NewPost = ({
   _id,
   headline,
@@ -55,6 +55,9 @@ const NewPost = ({
         <footer>
           <div className="actions-container">
             <div className="actions">
+              <Link to="/single-post" className="btn watch-btn">
+                Ver
+              </Link>
               <Link
                 to="/add-new"
                 onClick={() => setEditNew(_id)}

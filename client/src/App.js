@@ -6,6 +6,7 @@ import {
   Profile,
   Stats,
   SharedLayout,
+  SinglePost,
 } from './pages/dashboard';
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route index element={<Stats />} />
           <Route path="all-news" element={<AllNews />} />
           <Route path="add-new" element={<AddNew />} />
+          <Route path="single-post" element={<SinglePost />} />
           <Route path="profile" element={<Profile />} />
         </Route>
         <Route path="/register" element={<Register />} />

@@ -121,15 +121,29 @@ const Wrapper = styled.article`
     place-content: center;
   }
   .edit-btn,
+  .watch-btn,
   .delete-btn {
     letter-spacing: var(--spacing);
     cursor: pointer;
     height: 30px;
   }
   .edit-btn {
-    color: var(--color-5-900);
-    background: var(--color-4-700);
+    color: var(--grey-200);
+    background: var(--color-4-900);
     margin-right: 0.5rem;
+  }
+  .edit-btn:hover {
+    color: var(--grey-700);
+    background: var(--color-4-500);
+  }
+  .watch-btn {
+    color: var(--grey-100);
+    background: var(--color-2-700);
+    margin-right: 0.5rem;
+  }
+  .watch-btn:hover {
+    background: var(--color-2-500);
+    color: var(--grey-200);
   }
   .delete-btn {
     color: var(--primary-700);
