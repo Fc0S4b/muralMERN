@@ -87,7 +87,7 @@ export const initialState = {
   favorite: false,
   searchFavorite: 'todo',
   searchFavoriteOptions: ['favoritas', 'no favoritas'],
-  theme: 'dark-theme',
+  theme: 'light-theme',
 };
 
 const AppContext = React.createContext();
@@ -348,17 +348,8 @@ const AppProvider = ({ children }) => {
     }
   };
   const setFavorite = async (id) => {
-    // crear función para url ya que se repite dos veces
-    const { page, search, searchStatus, searchType, sort, searchFavorite } =
-      state;
-
-    let url = `/news?page=${page}&status=${searchStatus}&newType=${searchType}&sort=${sort}&favorite=${searchFavorite}`;
-    if (search) {
-      url = url + `&search=${search}`;
-    }
+    const { news } = state;
     try {
-      const { data } = await authFetch(url);
-      const { news } = data;
       let { favorite } = news.find((singleNew) => singleNew._id === id);
       favorite = !favorite;
 
