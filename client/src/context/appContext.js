@@ -38,6 +38,7 @@ import {
   CHANGE_FAVORITE,
   CHANGE_TO_DARKMODE,
   CHANGE_TO_LIGHTMODE,
+  SET_WATCH_NEW,
 } from './actions';
 
 const token = localStorage.getItem('token');
@@ -409,6 +410,15 @@ const AppProvider = ({ children }) => {
     }
   };
 
+  const setWatchNew = (id) => {
+    dispatch({
+      type: SET_WATCH_NEW,
+      payload: {
+        id,
+      },
+    });
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -433,6 +443,7 @@ const AppProvider = ({ children }) => {
         changePage,
         setFavorite,
         toggleTheme,
+        setWatchNew,
       }}
     >
       {children}

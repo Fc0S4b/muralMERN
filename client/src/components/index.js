@@ -16,7 +16,7 @@ import StatsContainer from './StatsContainer';
 import ChartsContainer from './ChartsContainer';
 import StatsItem from './StatsItem';
 import Loading from './Loading';
-
+import ShareLinks from './ShareLinks';
 export {
   Logo,
   FormRow,
@@ -36,4 +36,5 @@ export {
   ChartsContainer,
   StatsItem,
   Loading,
+  ShareLinks,
 };

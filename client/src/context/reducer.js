@@ -35,6 +35,7 @@ import {
   CHANGE_FAVORITE,
   CHANGE_TO_DARKMODE,
   CHANGE_TO_LIGHTMODE,
+  SET_WATCH_NEW,
 } from './actions';
 
 const reducer = (state, action) => {
@@ -315,6 +316,24 @@ const reducer = (state, action) => {
     return {
       ...state,
       theme: 'light-theme',
+    };
+  }
+  if (action.type === SET_WATCH_NEW) {
+    const newPost = state.news.find(
+      (singleNew) => singleNew._id === action.payload.id
+    );
+
+    // agregar texto de textarea
+    const { headline, description, newLocation, newType, status, createdAt } =
+      newPost;
+    return {
+      ...state,
+      headline,
+      description,
+      newLocation,
+      newType,
+      status,
+      createdAt,
     };
   }
 

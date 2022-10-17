@@ -19,7 +19,7 @@ const NewPost = ({
   status,
   favorite,
 }) => {
-  const { setEditNew, deleteNew, setFavorite } = useAppContext();
+  const { setEditNew, deleteNew, setFavorite, setWatchNew } = useAppContext();
   let date = moment(createdAt);
   date = date.format('MMM Do, YYYY');
 
@@ -55,7 +55,11 @@ const NewPost = ({
         <footer>
           <div className="actions-container">
             <div className="actions">
-              <Link to="/single-post" className="btn watch-btn">
+              <Link
+                to="/single-post"
+                onClick={() => setWatchNew(_id)}
+                className="btn watch-btn"
+              >
                 Ver
               </Link>
               <Link
