@@ -1,4 +1,4 @@
-import { FormRow, Alert, FormRowSelect } from '../../components';
+import { FormRow, Alert, FormRowSelect, TextArea } from '../../components';
 import { useAppContext } from '../../context/appContext';
 import Wrapper from '../../assets/wrappers/DashboardFormPage';
 import useTitle from '../../utils/useTitle';
@@ -88,16 +88,11 @@ const AddNew = () => {
         </div>
         {/* text-area */}
         <div className="newText">
-          <label htmlFor={newText} className="form-label">
-            Noticia
-          </label>
-          <textarea
+          <TextArea
             name="newText"
             value={newText}
-            cols="100"
-            rows="10"
-            className="boxText"
-          ></textarea>
+            handleChange={handleNewInput}
+          />
         </div>
         <div className="btn-container">
           <button

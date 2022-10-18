@@ -316,7 +316,8 @@ const AppProvider = ({ children }) => {
   const editNew = async () => {
     dispatch({ type: EDIT_NEW_BEGIN });
     try {
-      const { headline, description, newLocation, newType, status } = state;
+      const { headline, description, newLocation, newType, status, newText } =
+        state;
 
       await authFetch.patch(`/news/${state.editNewId}`, {
         headline,
@@ -324,6 +325,7 @@ const AppProvider = ({ children }) => {
         newLocation,
         newType,
         status,
+        newText,
       });
       dispatch({
         type: EDIT_NEW_SUCCESS,

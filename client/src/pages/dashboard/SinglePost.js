@@ -35,11 +35,7 @@ const SinglePost = () => {
       </header>
       <div className="content">
         <h4>{description}</h4>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam
-          minima ea aliquid ducimus vero perspiciatis hic nihil ex voluptatem
-          labore!
-        </p>
+        <p>{newText}</p>
       </div>
       <div className="share-links">
         <h3>Compartida en:</h3>

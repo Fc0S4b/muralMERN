@@ -17,6 +17,7 @@ import ChartsContainer from './ChartsContainer';
 import StatsItem from './StatsItem';
 import Loading from './Loading';
 import ShareLinks from './ShareLinks';
+import TextArea from './TextArea';
 export {
   Logo,
   FormRow,
@@ -37,4 +38,5 @@ export {
   StatsItem,
   Loading,
   ShareLinks,
+  TextArea,
 };

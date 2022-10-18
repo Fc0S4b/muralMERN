@@ -235,8 +235,15 @@ const reducer = (state, action) => {
       (singleNew) => singleNew._id === action.payload.id
     );
     // agregar texto de textarea
-    const { _id, headline, description, newLocation, newType, status } =
-      newPost;
+    const {
+      _id,
+      headline,
+      description,
+      newLocation,
+      newType,
+      status,
+      newText,
+    } = newPost;
     return {
       ...state,
       isEditing: true,
@@ -246,6 +253,7 @@ const reducer = (state, action) => {
       newLocation,
       newType,
       status,
+      newText,
     };
   }
   if (action.type === DELETE_NEW_BEGIN) {
@@ -324,8 +332,15 @@ const reducer = (state, action) => {
     );
 
     // agregar texto de textarea
-    const { headline, description, newLocation, newType, status, createdAt } =
-      newPost;
+    const {
+      headline,
+      description,
+      newLocation,
+      newType,
+      status,
+      createdAt,
+      newText,
+    } = newPost;
     return {
       ...state,
       headline,
@@ -334,6 +349,7 @@ const reducer = (state, action) => {
       newType,
       status,
       createdAt,
+      newText,
     };
   }
 
