@@ -18,6 +18,7 @@ const NewPost = ({
   createdAt,
   status,
   favorite,
+  newText,
 }) => {
   const { setEditNew, deleteNew, setFavorite, setWatchNew } = useAppContext();
   let date = moment(createdAt);
@@ -78,7 +79,7 @@ const NewPost = ({
               </button>
             </div>
             <div className="share-links">
-              <ShareLinks />
+              <ShareLinks newText={newText} />
             </div>
           </div>
         </footer>

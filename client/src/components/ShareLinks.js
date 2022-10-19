@@ -1,45 +1,60 @@
 import {
   BsWhatsapp,
   BsFacebook,
-  BsInstagram,
+  BsReddit,
   BsTwitter,
   BsLinkedin,
 } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
-const ShareLinks = () => {
+const ShareLinks = ({ newText }) => {
+  const openInNewTab = (url) => {
+    // use encodeURIComponent
+    const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
+    if (newWindow) newWindow.opener = null;
+  };
   return (
     <>
       <Link
         to="#wsp"
-        onClick={() => console.log('share on wsp')}
+        onClick={() => openInNewTab(`https://wa.me/?text=${newText}`)}
         className="btn share-btn"
       >
         <BsWhatsapp />
       </Link>
       <Link
-        to="#wsp"
-        onClick={() => console.log('share on fb')}
+        to="#facebook"
+        onClick={() =>
+          openInNewTab(
+            `https://www.facebook.com/sharer/sharer.php?t=${newText}`
+          )
+        }
         className="btn share-btn"
       >
         <BsFacebook />
       </Link>
       <Link
-        to="#wsp"
-        onClick={() => console.log('share on instagram')}
+        to="#reddit"
+        onClick={() => openInNewTab(`https://reddit.com/submit?title=hola`)}
         className="btn share-btn"
       >
-        <BsInstagram />
+        <BsReddit />
       </Link>
       <Link
-        to="#wsp"
-        onClick={() => console.log('share on twitter')}
+        to="#twitter"
+        onClick={() =>
+          openInNewTab(`https://twitter.com/intent/tweet?text=${newText}`)
+        }
         className="btn share-btn"
       >
         <BsTwitter />
       </Link>
       <Link
-        to="#wsp"
-        onClick={() => console.log('share on linkedin')}
+        to="#linkedin"
+        onClick={() =>
+          openInNewTab(
+            `https://www.linkedin.com/shareArticle?mini=true&title=${newText}`
+          )
+        }
         className="btn share-btn"
       >
         <BsLinkedin />
