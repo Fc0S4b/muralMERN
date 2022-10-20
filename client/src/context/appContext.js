@@ -255,13 +255,15 @@ const AppProvider = ({ children }) => {
   const createNew = async () => {
     dispatch({ type: CREATE_NEW_BEGIN });
     try {
-      const { headline, description, newLocation, newType, status } = state;
+      const { headline, description, newLocation, newType, status, newText } =
+        state;
       await authFetch.post('/news', {
         headline,
         description,
         newLocation,
         newType,
         status,
+        newText,
       });
       dispatch({
         type: CREATE_NEW_SUCCESS,
