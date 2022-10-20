@@ -1,4 +1,5 @@
 import moment from 'moment';
+import 'moment/locale/es';
 import Wrapper from '../assets/wrappers/NewPost';
 import { GrLocation } from 'react-icons/gr';
 import { BsFillCalendarWeekFill } from 'react-icons/bs';
@@ -21,6 +22,8 @@ const NewPost = ({
   newText,
 }) => {
   const { setEditNew, deleteNew, setFavorite, setWatchNew } = useAppContext();
+
+  moment.locale('es');
   let date = moment(createdAt);
   date = date.format('MMM Do, YYYY');
 

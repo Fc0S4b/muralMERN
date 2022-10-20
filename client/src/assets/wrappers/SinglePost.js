@@ -29,6 +29,7 @@ const Wrapper = styled.section`
   }
   header .text {
     font-size: 22px;
+    text-transform: capitalize;
   }
   .share-links {
     display: flex;
@@ -40,6 +41,7 @@ const Wrapper = styled.section`
     text-transform: none;
     font-size: 20px;
   }
+
   @media (max-width: 992px) {
     .icon {
       font-size: 30px;

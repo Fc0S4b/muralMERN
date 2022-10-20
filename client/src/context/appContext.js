@@ -38,7 +38,6 @@ import {
   CHANGE_FAVORITE,
   CHANGE_TO_DARKMODE,
   CHANGE_TO_LIGHTMODE,
-  SET_WATCH_NEW,
 } from './actions';
 
 const token = localStorage.getItem('token');
@@ -150,6 +149,13 @@ const AppProvider = ({ children }) => {
     localStorage.removeItem('location');
   };
 
+  const addNewToLocalStorage = (singleNew) => {
+    localStorage.setItem('singleNew', JSON.stringify(singleNew));
+  };
+  const removeNewFromLocalStorage = () => {
+    localStorage.removeItem('singleNew');
+  };
+
   const registerUser = async (currentUser) => {
     dispatch({ type: REGISTER_USER_BEGIN });
     try {
@@ -226,6 +232,8 @@ const AppProvider = ({ children }) => {
   const logoutUser = () => {
     dispatch({ type: LOGOUT_USER });
     removeUserFromLocalStorage();
+    removeNewFromLocalStorage();
+    localStorage.removeItem('theme');
   };
 
   const updateUser = async (currentUser) => {
@@ -406,12 +414,14 @@ const AppProvider = ({ children }) => {
   };
 
   const setWatchNew = (id) => {
-    dispatch({
-      type: SET_WATCH_NEW,
-      payload: {
-        id,
-      },
-    });
+    const singleNewFromLocalStorage = localStorage.getItem('singleNew');
+    if (singleNewFromLocalStorage) {
+      removeNewFromLocalStorage();
+    }
+
+    const singleNew = state.news.find((oneNew) => oneNew._id === id);
+
+    addNewToLocalStorage(singleNew);
   };
 
   return (
