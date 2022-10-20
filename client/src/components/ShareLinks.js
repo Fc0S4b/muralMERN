@@ -7,8 +7,9 @@ import {
 } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 const ShareLinks = ({ newText }) => {
-  const openInNewTab = (url) => {
-    // use encodeURIComponent
+  const openInNewTab = (mainURL) => {
+    const param = encodeURIComponent(newText);
+    const url = mainURL + param;
     const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
     if (newWindow) newWindow.opener = null;
   };
@@ -16,7 +17,7 @@ const ShareLinks = ({ newText }) => {
     <>
       <Link
         to="#wsp"
-        onClick={() => openInNewTab(`https://wa.me/?text=${newText}`)}
+        onClick={() => openInNewTab('https://wa.me/?text=')}
         className="btn share-btn"
       >
         <BsWhatsapp />
@@ -24,9 +25,7 @@ const ShareLinks = ({ newText }) => {
       <Link
         to="#facebook"
         onClick={() =>
-          openInNewTab(
-            `https://www.facebook.com/sharer/sharer.php?t=${newText}`
-          )
+          openInNewTab('https://www.facebook.com/sharer/sharer.php?t=')
         }
         className="btn share-btn"
       >
@@ -34,16 +33,14 @@ const ShareLinks = ({ newText }) => {
       </Link>
       <Link
         to="#reddit"
-        onClick={() => openInNewTab(`https://reddit.com/submit?title=hola`)}
+        onClick={() => openInNewTab('https://reddit.com/submit?title=')}
         className="btn share-btn"
       >
         <BsReddit />
       </Link>
       <Link
         to="#twitter"
-        onClick={() =>
-          openInNewTab(`https://twitter.com/intent/tweet?text=${newText}`)
-        }
+        onClick={() => openInNewTab('https://twitter.com/intent/tweet?text=')}
         className="btn share-btn"
       >
         <BsTwitter />
@@ -51,9 +48,7 @@ const ShareLinks = ({ newText }) => {
       <Link
         to="#linkedin"
         onClick={() =>
-          openInNewTab(
-            `https://www.linkedin.com/shareArticle?mini=true&title=${newText}`
-          )
+          openInNewTab('https://www.linkedin.com/shareArticle?mini=true&title=')
         }
         className="btn share-btn"
       >
