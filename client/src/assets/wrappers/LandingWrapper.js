@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Wrapper = styled.main`
-  background: var(--color-2-100);
+  background: var(--primary-100);
   display: grid;
   place-content: center;
   .page {
@@ -32,7 +32,7 @@ const Wrapper = styled.main`
 
   @media (max-width: 992px) {
     position: relative;
-    background: var(--color-2-100) url('../images/main.svg') no-repeat
+    background: var(--primary-100) url('../images/main.svg') no-repeat
       center/cover;
 
     img {
