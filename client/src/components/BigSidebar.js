@@ -23,12 +23,12 @@ const BigSidebar = () => {
             toggleSidebar={toggleSidebar}
             name={user.name}
           />
-          <button onClick={logoutUser}>
+          <button className="btn-off" onClick={logoutUser}>
             <span>
               <AiOutlinePoweroff />
             </span>
+            <h3>Cerrar sesión</h3>
           </button>
-          <h3>Cerrar sesión</h3>
         </div>
       </div>
     </Wrapper>

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Wrapper = styled.nav`
-  background: var(--primary-400);
+  background: var(--primary-900);
   width: 100%;
   position: sticky;
   top: 0;
@@ -14,7 +14,7 @@ const Wrapper = styled.nav`
     justify-content: space-between;
     align-items: center;
     padding: 0.4rem;
-    background: var(--primary-300);
+    background: var(--primary-500);
     color: var(--grey-100);
   }
   .logo {

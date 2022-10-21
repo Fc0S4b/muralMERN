@@ -20,7 +20,7 @@ const Wrapper = styled.aside`
     display: none;
   }
   .icon {
-    color: var(--color-5-700);
+    color: var(--color-5-900);
   }
   .icon:hover {
     color: var(--color-3-100);
@@ -34,10 +34,10 @@ const Wrapper = styled.aside`
   .nightmode {
     margin-left: 30px;
     cursor: pointer;
-    color: var(--color-5-700);
+    color: var(--color-5-900);
   }
   .nightmode:hover {
-    color: var(--color-5-900);
+    color: var(--color-5-300);
   }
   .off-btn {
     background: transparent;

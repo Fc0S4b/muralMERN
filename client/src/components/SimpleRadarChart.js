@@ -16,11 +16,11 @@ const SimpleRadarChart = ({ newsType }) => {
           dataKey="newType"
           style={{ textTransform: 'capitalize' }}
         />
-        <PolarRadiusAxis />
+        <PolarRadiusAxis stroke="#ffb396" />
         <Radar
           dataKey="count"
           stroke="#918450"
-          fill="#918450"
+          fill="#4c6793"
           fillOpacity={0.3}
         />
       </RadarChart>

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Wrapper = styled.aside`
   display: none;
-  background: var(--primary-100);
+  background: var(--color-3-700);
   box-shadow: 3px 1px 0px 0px rgba(0, 0, 0, 0.1);
   @media (min-width: 992px) {
     display: block;
@@ -32,11 +32,11 @@ const Wrapper = styled.aside`
     }
     .nightmode {
       font-size: 25px;
-      color: var(--color-5-700);
+      color: var(--color-4-700);
       cursor: pointer;
     }
     .nightmode:hover {
-      color: var(--color-3-900);
+      color: var(--color-5-900);
     }
     .nav-link {
       font-size: 20px;
@@ -44,10 +44,10 @@ const Wrapper = styled.aside`
       color: var(--color-5-900);
     }
     .icon {
-      color: var(--color-3-900);
+      color: var(--color-4-500);
     }
     .icon:hover {
-      color: var(--color-3-700);
+      color: var(--color-3-900);
       font-size: 21px;
     }
     .btn-container {
@@ -66,17 +66,25 @@ const Wrapper = styled.aside`
       margin-top: 10px;
     }
     .btn-container:hover {
-      color: var(--primary-900);
+      color: var(--grey-900);
     }
 
     .btn-container > h3 {
       font-size: 14px;
     }
-    .btn-container span {
-      color: var(--color-5-900);
+    .btn-container span.text {
+      color: var(--grey-200);
     }
     .btn-container span:hover {
+      color: var(--grey-300);
+    }
+    .btn-off {
       color: var(--primary-500);
+      font-size: 23px;
+    }
+    .btn-off h3 {
+      font-size: 14px;
+      color: var(--grey-200);
     }
   }
 `;

@@ -4,6 +4,11 @@ const Wrapper = styled.section`
   .form {
     width: 100%;
     max-width: 100%;
+    background: var(--color-3-700);
+    color: var(--grey-200);
+  }
+  .form h4 {
+    color: var(--grey-300);
   }
   .form-input,
   .form-select,

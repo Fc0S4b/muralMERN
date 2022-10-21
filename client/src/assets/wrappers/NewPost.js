@@ -66,7 +66,7 @@ const Wrapper = styled.article`
     color: #467186;
   }
   .compartida {
-    background: var(--color-5-100);
+    background: var(--color-5-900);
     color: var(--color-5-500);
   }
   .caducada {

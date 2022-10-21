@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Wrapper = styled.nav`
   height: 4rem;
-  background: var(--primary-400);
+  background: var(--primary-500);
   box-shadow: 3px 1px 0px 0px rgba(0, 0, 0, 0.1);
   position: fixed;
   bottom: 0;
@@ -11,6 +11,7 @@ const Wrapper = styled.nav`
   .content {
     width: 90vw;
     padding: 10px;
+    background: var(--primary-500);
   }
   .nav-links {
     display: flex;
@@ -20,7 +21,7 @@ const Wrapper = styled.nav`
   .nav-link {
     margin-left: 30px;
     text-align: center;
-    color: var(--color-2-300);
+    color: var(--color-5-300);
   }
   .nav-link:hover {
     color: var(--color-4-300);
@@ -34,7 +35,7 @@ const Wrapper = styled.nav`
     color: var(--color-3-500);
   }
   .active {
-    color: var(--color-3-300);
+    color: var(--color-3-500);
   }
   .active .icon {
     color: var(--color-4-100);

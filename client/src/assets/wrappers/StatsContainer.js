@@ -12,6 +12,10 @@ const Wrapper = styled.section`
     display: grid;
     row-gap: 2rem;
   }
+  .stats-container article {
+    background: var(--color-5-500);
+  }
+
   @media (min-width: 768px) {
     .stats-container {
       grid-template-columns: 1fr 1fr;

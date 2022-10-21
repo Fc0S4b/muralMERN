@@ -1,5 +1,4 @@
 import { NavLink } from 'react-router-dom';
-import { useAppContext } from '../context/appContext';
 
 const NavLinks = ({ links, toggleSidebar, name }) => {
   return (

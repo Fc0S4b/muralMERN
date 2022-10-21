@@ -67,7 +67,7 @@ const BarChartComponent = ({ data }) => {
         <YAxis allowDecimals={false} domain={[0, 'dataMax']} />
         <Tooltip content={<CustomTooltip />} />
         <Legend />
-        <Bar dataKey="count" barSize={55} fill="#ffb561" />
+        <Bar dataKey="count" barSize={55} fill="#c84b31" />
       </BarChart>
     </ResponsiveContainer>
   );

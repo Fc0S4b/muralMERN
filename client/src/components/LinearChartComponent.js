@@ -47,7 +47,7 @@ const LinearChartComponent = ({ data }) => {
         <Line
           type="monotone"
           dataKey="count"
-          stroke="#6c0f16"
+          stroke="#f66b0e"
           activeDot={{ r: 8 }}
         />
       </LineChart>
