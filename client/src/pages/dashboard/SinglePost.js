@@ -1,12 +1,21 @@
 import Wrapper from '../../assets/wrappers/SinglePost';
-import { ShareLinks, NewInfo } from '../../components';
+import { NewInfo } from '../../components';
 import { GrLocation } from 'react-icons/gr';
 import { BsFillCalendarWeekFill } from 'react-icons/bs';
 import { BiNews } from 'react-icons/bi';
 import moment from 'moment';
 import 'moment/locale/es';
+import { useEffect } from 'react';
+import { useAppContext } from '../../context/appContext';
 const SinglePost = () => {
   const oneNew = localStorage.getItem('singleNew');
+
+  const { changeNavTitle } = useAppContext();
+  useEffect(() => {
+    changeNavTitle('Ver publicación');
+    // eslint-disable-next-line
+  }, []);
+
   if (oneNew) {
     const {
       headline,

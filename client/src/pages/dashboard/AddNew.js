@@ -2,6 +2,7 @@ import { FormRow, Alert, FormRowSelect, TextArea } from '../../components';
 import { useAppContext } from '../../context/appContext';
 import Wrapper from '../../assets/wrappers/DashboardFormPage';
 import useTitle from '../../utils/useTitle';
+import { useEffect } from 'react';
 
 const AddNew = () => {
   const {
@@ -21,8 +22,18 @@ const AddNew = () => {
     clearValues,
     createNew,
     editNew,
+    changeNavTitle,
   } = useAppContext();
   useTitle('Editar noticia');
+
+  useEffect(() => {
+    if (isEditing) {
+      changeNavTitle('Editar noticia');
+    }
+    // eslint-disable-next-line
+  }, []);
+
+  // changeNavTitle('Agregar noticia');
 
   const handleSubmit = (e) => {
     e.preventDefault();

@@ -9,7 +9,7 @@ const Landing = () => {
         <img src={main} alt="add post" className="img main-img" />
         <div className="info">
           <h1>
-            <span>Mural</span> de noticias
+            <span>Muralify</span> para noticias
           </h1>
           <p>
             Crea tu propia bitácora de noticias personalizadas y gestiona la

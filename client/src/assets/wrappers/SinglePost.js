@@ -21,15 +21,15 @@ const Wrapper = styled.section`
   .status {
     border-radius: 10px;
     color: var(--grey-700);
+    padding: 5px;
   }
   .pendiente {
-    background: var(--color-4-500);
-    color: var(--color-4-900);
+    background: var(--color-4-700);
+    color: var(--color-4-200);
   }
   .lista {
     background: #cadae3;
     color: #467186;
-    padding: 5px;
   }
   .compartida {
     background: var(--color-5-900);

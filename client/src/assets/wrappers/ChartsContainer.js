@@ -8,7 +8,7 @@ const Wrapper = styled.section`
     border-color: transparent;
     text-transform: capitalize;
     color: var(--color-3-900);
-    font-size: 1.25rem;
+    font-size: 1.7rem;
     cursor: pointer;
   }
   button:active {

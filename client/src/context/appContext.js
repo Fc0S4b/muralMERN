@@ -38,6 +38,7 @@ import {
   CHANGE_FAVORITE,
   CHANGE_TO_DARKMODE,
   CHANGE_TO_LIGHTMODE,
+  CHANGE_TITLE,
 } from './actions';
 
 const token = localStorage.getItem('token');
@@ -424,6 +425,10 @@ const AppProvider = ({ children }) => {
     addNewToLocalStorage(singleNew);
   };
 
+  const changeNavTitle = (title) => {
+    dispatch({ type: CHANGE_TITLE, payload: { title } });
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -449,6 +454,7 @@ const AppProvider = ({ children }) => {
         setFavorite,
         toggleTheme,
         setWatchNew,
+        changeNavTitle,
       }}
     >
       {children}

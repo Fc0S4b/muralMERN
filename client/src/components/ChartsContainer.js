@@ -13,7 +13,7 @@ const ChartsContainer = () => {
       <h3>Publicaciones mensuales</h3>
       <SimpleRadarChart newsType={newsType} />
       <button type="button" onClick={() => setBarChart(!barChart)}>
-        {barChart ? 'Gráfico lineal' : 'Gráfico de barras'}
+        {barChart ? 'Cambiar  a gráfico lineal' : 'Cambiar a gráfico de barras'}
       </button>
       {barChart ? (
         <BarChartComponent data={data} />

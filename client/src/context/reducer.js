@@ -35,6 +35,7 @@ import {
   CHANGE_FAVORITE,
   CHANGE_TO_DARKMODE,
   CHANGE_TO_LIGHTMODE,
+  CHANGE_TITLE,
 } from './actions';
 
 const reducer = (state, action) => {
@@ -193,6 +194,8 @@ const reducer = (state, action) => {
       newLocation: state.userLocation,
       newType: 'información',
       status: 'pendiente',
+      newText: '',
+      title: 'Agregar noticia',
     };
     return { ...state, ...initialState };
   }
@@ -218,7 +221,12 @@ const reducer = (state, action) => {
     };
   }
   if (action.type === GET_NEWS_BEGIN) {
-    return { ...state, isLoading: true, showAlert: false };
+    return {
+      ...state,
+      title: 'Publicaciones',
+      isLoading: true,
+      showAlert: false,
+    };
   }
   if (action.type === GET_NEWS_SUCCESS) {
     return {
@@ -280,7 +288,12 @@ const reducer = (state, action) => {
     };
   }
   if (action.type === SHOW_STATS_BEGIN) {
-    return { ...state, isLoading: true, showAlert: false };
+    return {
+      ...state,
+      title: 'Estadísticas',
+      isLoading: true,
+      showAlert: false,
+    };
   }
   if (action.type === SHOW_STATS_SUCCESS) {
     return {
@@ -323,6 +336,12 @@ const reducer = (state, action) => {
     return {
       ...state,
       theme: 'light-theme',
+    };
+  }
+  if (action.type === CHANGE_TITLE) {
+    return {
+      ...state,
+      title: action.payload.title,
     };
   }
 

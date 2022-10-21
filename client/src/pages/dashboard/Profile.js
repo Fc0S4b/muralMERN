@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FormRow, Alert } from '../../components';
 import { useAppContext } from '../../context/appContext';
 
@@ -6,8 +6,20 @@ import Wrapper from '../../assets/wrappers/DashboardFormPage';
 import useTitle from '../../utils/useTitle';
 
 const Profile = () => {
-  const { user, showAlert, displayAlert, updateUser, isLoading } =
-    useAppContext();
+  const {
+    user,
+    showAlert,
+    displayAlert,
+    updateUser,
+    isLoading,
+    changeNavTitle,
+  } = useAppContext();
+
+  useEffect(() => {
+    changeNavTitle('Perfil');
+    // eslint-disable-next-line
+  }, []);
+
   const [name, setName] = useState(user?.name);
   const [email, setEmail] = useState(user?.email);
   const [lastName, setLastName] = useState(user?.lastName);

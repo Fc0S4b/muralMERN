@@ -21,7 +21,7 @@ const Wrapper = styled.nav`
   .nav-link {
     margin-left: 30px;
     text-align: center;
-    color: var(--color-5-300);
+    color: var(--color-5-700);
   }
   .nav-link:hover {
     color: var(--color-4-300);
@@ -35,7 +35,7 @@ const Wrapper = styled.nav`
     color: var(--color-3-500);
   }
   .active {
-    color: var(--color-3-500);
+    color: var(--color-4-300);
   }
   .active .icon {
     color: var(--color-4-100);
