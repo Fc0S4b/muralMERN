@@ -1,4 +1,4 @@
-import 'express-async-errors';
+require('express-async-errors');
 import express from 'express';
 const app = express();
 import dotenv from 'dotenv';
