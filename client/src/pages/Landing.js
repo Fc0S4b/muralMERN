@@ -4,7 +4,7 @@ import Wrapper from '../assets/wrappers/LandingWrapper';
 
 const Landing = () => {
   return (
-    <Wrapper>
+    <Wrapper className="full-page">
       <div className="container page full-page">
         <img src={main} alt="add post" className="img main-img" />
         <div className="info">

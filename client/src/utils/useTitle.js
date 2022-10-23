@@ -7,6 +7,7 @@ const useTitle = (title) => {
     return () => {
       document.title = prevTitle;
     };
+    // eslint-disable-next-line
   }, []);
 };
 

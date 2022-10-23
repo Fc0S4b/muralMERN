@@ -32,7 +32,7 @@ const SinglePost = () => {
     date = date.format('LLLL');
 
     return (
-      <Wrapper>
+      <Wrapper className="full-page">
         <div className="properties">
           <NewInfo icon={<BiNews />} text={newType} />
           <NewInfo icon={<GrLocation />} text={newLocation} />

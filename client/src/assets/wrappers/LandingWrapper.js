@@ -4,6 +4,7 @@ const Wrapper = styled.main`
   background: var(--primary-100);
   display: grid;
   place-content: center;
+
   .page {
     display: flex;
     justify-content: space-between;

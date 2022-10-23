@@ -18,7 +18,6 @@ const NewsContainer = () => {
     sort,
     numOfPages,
     searchFavorite,
-    favorite,
   } = useAppContext();
   useEffect(() => {
     getNews();
