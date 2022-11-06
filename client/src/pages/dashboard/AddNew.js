@@ -29,6 +29,8 @@ const AddNew = () => {
   useEffect(() => {
     if (isEditing) {
       changeNavTitle('Editar noticia');
+    } else {
+      changeNavTitle('Agregar noticia');
     }
     // eslint-disable-next-line
   }, []);
@@ -91,7 +93,7 @@ const AddNew = () => {
           />
           {/* job status */}
           <FormRowSelect
-            name="status"
+            name="Estado"
             value={status}
             handleChange={handleNewInput}
             list={statusOptions}
